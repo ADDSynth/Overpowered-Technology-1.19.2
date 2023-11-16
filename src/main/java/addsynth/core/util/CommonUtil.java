@@ -37,11 +37,11 @@ public final class CommonUtil {
   }
 
   public static final Collection<EntityType<?>> getAllEntities(){
-    return ForgeRegistries.ENTITIES.getValues();
+    return ForgeRegistries.ENTITY_TYPES.getValues();
   }
   
   public static final Set<ResourceLocation> getAllEntityIDs(){
-    return ForgeRegistries.ENTITIES.getKeys();
+    return ForgeRegistries.ENTITY_TYPES.getKeys();
   }
 
   public static final void displayModInfo(Logger log, String mod_name, String author, String version, DevStage dev_stage, String date){

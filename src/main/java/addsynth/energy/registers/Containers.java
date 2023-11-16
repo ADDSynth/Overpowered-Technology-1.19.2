@@ -14,21 +14,21 @@ import net.minecraftforge.registries.RegistryObject;
 public final class Containers {
 
   public static final RegistryObject<MenuType<ContainerGenerator>> GENERATOR =
-    RegistryObject.create(Names.GENERATOR, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.GENERATOR, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerCompressor>> COMPRESSOR =
-    RegistryObject.create(Names.COMPRESSOR, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.COMPRESSOR, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerEnergyStorage>> ENERGY_STORAGE_CONTAINER =
-    RegistryObject.create(Names.ENERGY_STORAGE, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.ENERGY_STORAGE, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerUniversalEnergyInterface>> UNIVERSAL_ENERGY_INTERFACE =
-    RegistryObject.create(Names.UNIVERSAL_ENERGY_INTERFACE, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.UNIVERSAL_ENERGY_INTERFACE, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerElectricFurnace>> ELECTRIC_FURNACE =
-    RegistryObject.create(Names.ELECTRIC_FURNACE, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.ELECTRIC_FURNACE, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<CircuitFabricatorContainer>> CIRCUIT_FABRICATOR =
-    RegistryObject.create(Names.CIRCUIT_FABRICATOR, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.CIRCUIT_FABRICATOR, ForgeRegistries.MENU_TYPES);
 
 }

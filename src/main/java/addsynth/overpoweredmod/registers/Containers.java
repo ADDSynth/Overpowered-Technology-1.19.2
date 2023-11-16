@@ -22,45 +22,45 @@ import net.minecraftforge.registries.RegistryObject;
 public final class Containers {
 
   public static final RegistryObject<MenuType<ContainerCrystalEnergyExtractor>> CRYSTAL_ENERGY_EXTRACTOR  =
-    RegistryObject.create(Names.CRYSTAL_ENERGY_EXTRACTOR, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.CRYSTAL_ENERGY_EXTRACTOR, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerInverter>> INVERTER =
-    RegistryObject.create(Names.INVERTER, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.INVERTER, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerGemConverter>> GEM_CONVERTER =
-    RegistryObject.create(Names.GEM_CONVERTER, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.GEM_CONVERTER, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerMagicInfuser>> MAGIC_INFUSER =
-    RegistryObject.create(Names.MAGIC_INFUSER, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.MAGIC_INFUSER, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerIdentifier>> IDENTIFIER =
-    RegistryObject.create(Names.IDENTIFIER, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.IDENTIFIER, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerSuspensionBridge>> ENERGY_SUSPENSION_BRIDGE =
-    RegistryObject.create(Names.ENERGY_SUSPENSION_BRIDGE, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.ENERGY_SUSPENSION_BRIDGE, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerOreRefinery>> ADVANCED_ORE_REFINERY =
-    RegistryObject.create(Names.ADVANCED_ORE_REFINERY, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.ADVANCED_ORE_REFINERY, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerCrystalGenerator>> CRYSTAL_MATTER_GENERATOR =
-    RegistryObject.create(Names.CRYSTAL_MATTER_GENERATOR, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.CRYSTAL_MATTER_GENERATOR, ForgeRegistries.MENU_TYPES);
   
   public static final RegistryObject<MenuType<ContainerPortalControlPanel>> PORTAL_CONTROL_PANEL =
-    RegistryObject.create(Names.PORTAL_CONTROL_PANEL, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.PORTAL_CONTROL_PANEL, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerPortalFrame>> PORTAL_FRAME =
-    RegistryObject.create(Names.PORTAL_FRAME, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.PORTAL_FRAME, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerLaserHousing>> LASER_HOUSING =
-    RegistryObject.create(Names.LASER_HOUSING, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.LASER_HOUSING, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerFusionChamber>> FUSION_CHAMBER =
-    RegistryObject.create(Names.FUSION_CHAMBER, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.FUSION_CHAMBER, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<ContainerPlasmaGenerator>> PLASMA_GENERATOR =
-    RegistryObject.create(Names.PLASMA_GENERATOR, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.PLASMA_GENERATOR, ForgeRegistries.MENU_TYPES);
 
   public static final RegistryObject<MenuType<MatterCompressorContainer>> MATTER_COMPRESSOR =
-    RegistryObject.create(Names.MATTER_COMPRESSOR, ForgeRegistries.CONTAINERS);
+    RegistryObject.create(Names.MATTER_COMPRESSOR, ForgeRegistries.MENU_TYPES);
 
 }

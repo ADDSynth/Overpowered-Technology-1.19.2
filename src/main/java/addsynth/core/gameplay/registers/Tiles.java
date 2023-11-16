@@ -9,6 +9,6 @@ import net.minecraftforge.registries.RegistryObject;
 public final class Tiles {
 
   public static final RegistryObject<BlockEntityType<TileMusicBox>> MUSIC_BOX =
-    RegistryObject.create(Names.MUSIC_BOX, ForgeRegistries.BLOCK_ENTITIES);
+    RegistryObject.create(Names.MUSIC_BOX, ForgeRegistries.BLOCK_ENTITY_TYPES);
 
 }
