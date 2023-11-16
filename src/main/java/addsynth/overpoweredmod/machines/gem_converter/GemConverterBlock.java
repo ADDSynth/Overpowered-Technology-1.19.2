@@ -55,7 +55,7 @@ public final class GemConverterBlock extends MachineBlock {
     if(world.isClientSide == false){
       final TileGemConverter tile = MinecraftUtility.getTileEntity(pos, world, TileGemConverter.class);
       if(tile != null){
-        NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+        NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
       }
     }
     return InteractionResult.SUCCESS;

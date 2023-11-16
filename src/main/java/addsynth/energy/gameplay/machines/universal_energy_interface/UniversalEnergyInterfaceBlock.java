@@ -58,7 +58,7 @@ public final class UniversalEnergyInterfaceBlock extends MachineBlock {
     if(world.isClientSide == false){
       final TileUniversalEnergyInterface tile = MinecraftUtility.getTileEntity(pos, world, TileUniversalEnergyInterface.class);
       if(tile != null){
-        NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+        NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
       }
     }
     return InteractionResult.SUCCESS;

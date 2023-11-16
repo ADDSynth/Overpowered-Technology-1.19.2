@@ -55,7 +55,7 @@ public final class CrystalMatterGeneratorBlock extends MachineBlock {
     if(world.isClientSide == false){
       final TileCrystalMatterGenerator tile = MinecraftUtility.getTileEntity(pos, world, TileCrystalMatterGenerator.class);
       if(tile != null){
-        NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+        NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
       }
     }
     return InteractionResult.SUCCESS;

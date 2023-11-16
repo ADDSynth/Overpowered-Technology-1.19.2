@@ -55,7 +55,7 @@ public final class MagicInfuserBlock extends MachineBlock {
     if(world.isClientSide == false){
       final TileMagicInfuser tile = MinecraftUtility.getTileEntity(pos, world, TileMagicInfuser.class);
       if(tile != null){
-        NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+        NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
       }
     }
     return InteractionResult.SUCCESS;

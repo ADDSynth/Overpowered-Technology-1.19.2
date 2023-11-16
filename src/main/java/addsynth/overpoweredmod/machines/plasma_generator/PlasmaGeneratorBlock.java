@@ -64,7 +64,7 @@ public final class PlasmaGeneratorBlock extends MachineBlock {
     if(world.isClientSide == false){
       final TilePlasmaGenerator tile = MinecraftUtility.getTileEntity(pos, world, TilePlasmaGenerator.class);
       if(tile != null){
-        NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+        NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
       }
     }
     return InteractionResult.SUCCESS;

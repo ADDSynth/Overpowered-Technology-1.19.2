@@ -55,7 +55,7 @@ public final class AdvancedOreRefineryBlock extends MachineBlock {
     if(world.isClientSide == false){
       final TileAdvancedOreRefinery tile = MinecraftUtility.getTileEntity(pos, world, TileAdvancedOreRefinery.class);
       if(tile != null){
-        NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+        NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
       }
     }
     return InteractionResult.SUCCESS;

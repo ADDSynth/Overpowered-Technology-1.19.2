@@ -63,7 +63,7 @@ public final class LaserHousingBlock extends MachineBlock {
         final LaserNetwork network = tile.getBlockNetwork();
         if(network != null){
           network.updateClient(world);
-          NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+          NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
         }
         else{
           OverpoweredTechnology.log.error(new NullPointerException("Laser Machine at "+pos.toString()+" has no LaserNetwork!"));

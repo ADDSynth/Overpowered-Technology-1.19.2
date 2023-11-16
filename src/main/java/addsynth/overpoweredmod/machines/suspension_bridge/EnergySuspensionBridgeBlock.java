@@ -67,7 +67,7 @@ public final class EnergySuspensionBridgeBlock extends MachineBlock {
         final BridgeNetwork network = tile.getBlockNetwork();
         if(network != null){
           network.check_and_update(world);
-          NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+          NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
         }
         else{
           OverpoweredTechnology.log.error(new NullPointerException("Energy Suspension Bridge at "+pos.toString()+" has no BridgeNetwork!"));

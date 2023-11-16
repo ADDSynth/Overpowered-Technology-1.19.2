@@ -55,7 +55,7 @@ public final class MatterCompressorBlock extends MachineBlock {
     if(world.isClientSide == false){
       final TileMatterCompressor tile = MinecraftUtility.getTileEntity(pos, world, TileMatterCompressor.class);
       if(tile != null){
-        NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+        NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
       }
     }
     return InteractionResult.SUCCESS;

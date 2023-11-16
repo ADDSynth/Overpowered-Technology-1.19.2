@@ -48,7 +48,7 @@ public final class FusionChamberBlock extends MachineBlock {
       final TileFusionChamber tile = MinecraftUtility.getTileEntity(pos, world, TileFusionChamber.class);
       if(tile == null){ return InteractionResult.PASS; }
       if(tile.is_on()){ return InteractionResult.PASS; }
-      NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+      NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
     }
     return InteractionResult.SUCCESS;
   }

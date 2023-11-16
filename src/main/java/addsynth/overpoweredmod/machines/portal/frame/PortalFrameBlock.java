@@ -37,7 +37,7 @@ public final class PortalFrameBlock extends MachineBlock {
     if(world.isClientSide == false){
       final TilePortalFrame tile = MinecraftUtility.getTileEntity(pos, world, TilePortalFrame.class);
       if(tile != null){
-        NetworkHooks.openGui((ServerPlayer)player, tile, pos);
+        NetworkHooks.openScreen((ServerPlayer)player, tile, pos);
       }
     }
     return InteractionResult.SUCCESS;
