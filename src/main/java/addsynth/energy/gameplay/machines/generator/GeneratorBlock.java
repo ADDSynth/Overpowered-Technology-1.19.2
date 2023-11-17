@@ -3,7 +3,6 @@ package addsynth.energy.gameplay.machines.generator;
 import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.util.game.MinecraftUtility;
-import addsynth.energy.gameplay.reference.Names;
 import addsynth.energy.gameplay.reference.TextReference;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.energy.registers.Tiles;
@@ -29,7 +28,6 @@ public final class GeneratorBlock extends MachineBlock {
 
   public GeneratorBlock(){
     super(MaterialColor.WOOL);
-    setRegistryName(Names.GENERATOR);
   }
 
   @Override

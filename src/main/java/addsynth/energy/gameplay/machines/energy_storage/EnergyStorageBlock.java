@@ -4,7 +4,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.block_network.BlockNetworkUtil;
 import addsynth.core.util.game.MinecraftUtility;
-import addsynth.energy.gameplay.reference.Names;
 import addsynth.energy.gameplay.reference.TextReference;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.energy.lib.energy_network.EnergyNetwork;
@@ -35,7 +34,6 @@ public final class EnergyStorageBlock extends MachineBlock {
 
   public EnergyStorageBlock(){
     super(Block.Properties.of(Material.METAL, MaterialColor.SNOW).noOcclusion().strength(3.5f, 6.0f));
-    setRegistryName(Names.ENERGY_STORAGE);
   }
 
   @Override

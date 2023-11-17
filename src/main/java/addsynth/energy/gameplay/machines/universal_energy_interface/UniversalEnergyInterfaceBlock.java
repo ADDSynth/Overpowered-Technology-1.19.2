@@ -4,7 +4,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.block_network.BlockNetworkUtil;
 import addsynth.core.util.game.MinecraftUtility;
-import addsynth.energy.gameplay.reference.Names;
 import addsynth.energy.gameplay.reference.TextReference;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.energy.lib.energy_network.EnergyNetwork;
@@ -32,7 +31,6 @@ public final class UniversalEnergyInterfaceBlock extends MachineBlock {
 
   public UniversalEnergyInterfaceBlock(){
     super(MaterialColor.WOOL);
-    setRegistryName(Names.UNIVERSAL_ENERGY_INTERFACE);
   }
 
   @Override

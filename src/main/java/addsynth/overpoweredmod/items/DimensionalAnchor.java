@@ -4,7 +4,6 @@ import addsynth.core.compat.Compatibility;
 import addsynth.core.util.game.MessageUtil;
 import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.assets.CreativeTabs;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.OverpoweredItems;
 import addsynth.overpoweredmod.items.register.OverpoweredItem;
 import net.minecraft.server.MinecraftServer;
@@ -23,7 +22,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 public final class DimensionalAnchor extends OverpoweredItem {
 
   public DimensionalAnchor(){
-    super(Names.DIMENSIONAL_ANCHOR, new Item.Properties().tab(CreativeTabs.creative_tab).stacksTo(1));
+    super(new Item.Properties().tab(CreativeTabs.creative_tab).stacksTo(1));
   }
 
   public static final boolean player_has_dimensional_anchor(final Player player){

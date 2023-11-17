@@ -5,7 +5,6 @@ import javax.annotation.Nullable;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.energy.gameplay.reference.TextReference;
 import addsynth.energy.lib.blocks.MachineBlock;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.machines.data_cable.DataCable;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.core.BlockPos;
@@ -38,7 +37,6 @@ public final class PortalControlPanelBlock extends MachineBlock {
 
   public PortalControlPanelBlock(){
     super(MaterialColor.SNOW);
-    setRegistryName(Names.PORTAL_CONTROL_PANEL);
     this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     DataCable.addAttachableBlock(this);
   }

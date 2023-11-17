@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public final class StringUtil {
 
@@ -199,7 +200,7 @@ public final class StringUtil {
    */
   public static final String getName(final Item item){
     if(item != null){
-      final ResourceLocation registry_name = item.getRegistryName();
+      final ResourceLocation registry_name = ForgeRegistries.ITEMS.getKey(item);
       if(registry_name == null){
         final String unlocalized_name = item.getDescriptionId();
         if(unlocalized_name.equals("item.null")){
@@ -217,7 +218,7 @@ public final class StringUtil {
    */
   public static final String getName(final Block block){
     if(block != null){
-      final ResourceLocation registry_name = block.getRegistryName();
+      final ResourceLocation registry_name = ForgeRegistries.BLOCKS.getKey(block);
       if(registry_name == null){
         final String unlocalized_name = block.getDescriptionId();
         if(unlocalized_name.equals("tile.null")){

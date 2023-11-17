@@ -4,7 +4,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.energy.lib.blocks.MachineBlock;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.TextReference;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -27,7 +26,6 @@ public final class FusionChamberBlock extends MachineBlock {
 
   public FusionChamberBlock(){
     super(MaterialColor.SNOW);
-    setRegistryName(Names.FUSION_CHAMBER);
   }
 
   @Override

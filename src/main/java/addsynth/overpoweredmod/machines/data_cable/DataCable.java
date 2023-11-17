@@ -5,7 +5,6 @@ import javax.annotation.Nullable;
 import addsynth.core.block_network.BlockNetworkUtil;
 import addsynth.core.util.block.BlockShape;
 import addsynth.energy.lib.blocks.Wire;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -43,7 +42,6 @@ public final class DataCable extends Wire {
 
   public DataCable(){
     super(Block.Properties.of(Material.VEGETABLE, MaterialColor.WOOL).strength(0.1f, 0.0f));
-    setRegistryName(Names.DATA_CABLE);
     valid_blocks.add(this);
   }
 

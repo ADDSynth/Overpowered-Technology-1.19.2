@@ -8,7 +8,6 @@ import addsynth.core.util.game.tileentity.TileEntityUtil;
 import addsynth.energy.gameplay.reference.TextReference;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.overpoweredmod.OverpoweredTechnology;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -33,7 +32,6 @@ public final class EnergySuspensionBridgeBlock extends MachineBlock {
 
   public EnergySuspensionBridgeBlock(){
     super(MaterialColor.COLOR_GRAY);
-    setRegistryName(Names.ENERGY_SUSPENSION_BRIDGE);
   }
 
   @Override

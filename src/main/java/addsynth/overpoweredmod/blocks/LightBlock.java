@@ -4,7 +4,6 @@ import java.text.NumberFormat;
 import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.overpoweredmod.config.MachineValues;
-import addsynth.overpoweredmod.game.reference.Names;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -19,7 +18,6 @@ public final class LightBlock extends Block {
 
   public LightBlock(){
     super(Block.Properties.of(Material.STONE, MaterialColor.QUARTZ).lightLevel((blockstate)->{return 15;}).strength(5.0f, 6.0f).requiresCorrectToolForDrops());
-    setRegistryName(Names.LIGHT_BLOCK);
   }
 
   @Override

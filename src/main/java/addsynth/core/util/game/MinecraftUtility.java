@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public final class MinecraftUtility {
 
@@ -26,21 +27,13 @@ public final class MinecraftUtility {
     if(item instanceof BlockItem){
       return isVanilla(((BlockItem)item).getBlock());
     }
-    final ResourceLocation registry_name = item.getRegistryName();
-    if(registry_name != null){
-      return registry_name.getNamespace().equals("minecraft");
-    }
-    ADDSynthCore.log.error(new NullPointerException("The item '"+StringUtil.getName(item)+"' doesn't have its registry name set!"));
-    return false;
+    final ResourceLocation registry_name = ForgeRegistries.ITEMS.getKey(item);
+    return registry_name != null ? registry_name.getNamespace().equals("minecraft") : false;
   }
 
   public static final boolean isVanilla(final Block block){
-    final ResourceLocation registry_name = block.getRegistryName();
-    if(registry_name != null){
-      return registry_name.getNamespace().equals("minecraft");
-    }
-    ADDSynthCore.log.error(new NullPointerException("The block '"+StringUtil.getName(block)+"' doesn't have its registry name set!"));
-    return false;
+    final ResourceLocation registry_name = ForgeRegistries.BLOCKS.getKey(block);
+    return registry_name != null ? registry_name.getNamespace().equals("minecraft") : false;
   }
 
   public static final Block.Properties setUnbreakable(final Block.Properties properties){

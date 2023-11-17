@@ -5,7 +5,6 @@ import javax.annotation.Nullable;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.energy.gameplay.reference.TextReference;
 import addsynth.energy.lib.blocks.MachineBlock;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -37,7 +36,6 @@ public final class PlasmaGeneratorBlock extends MachineBlock {
 
   public PlasmaGeneratorBlock(){
     super(MaterialColor.WOOL);
-    setRegistryName(Names.PLASMA_GENERATOR);
     this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
   }
 

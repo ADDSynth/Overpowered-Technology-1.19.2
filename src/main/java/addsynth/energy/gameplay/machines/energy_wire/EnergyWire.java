@@ -3,7 +3,6 @@ package addsynth.energy.gameplay.machines.energy_wire;
 import javax.annotation.Nullable;
 import addsynth.core.block_network.BlockNetworkUtil;
 import addsynth.energy.gameplay.machines.energy_diagnostics.TileEnergyDiagnostics;
-import addsynth.energy.gameplay.reference.Names;
 import addsynth.energy.lib.blocks.Wire;
 import addsynth.energy.lib.energy_network.EnergyNetwork;
 import addsynth.energy.lib.energy_network.tiles.AbstractEnergyNetworkTile;
@@ -25,7 +24,6 @@ public final class EnergyWire extends Wire {
 
   public EnergyWire(){
     super(Block.Properties.of(Material.WOOL, MaterialColor.COLOR_GRAY).strength(0.1f, 0.0f));
-    setRegistryName(Names.ENERGY_WIRE);
   }
 
   @Override

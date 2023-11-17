@@ -1,7 +1,6 @@
 package addsynth.core.gameplay.team_manager;
 
 import addsynth.core.gameplay.client.GuiProvider;
-import addsynth.core.gameplay.reference.Names;
 import addsynth.core.gameplay.reference.TextReference;
 import addsynth.core.util.command.PermissionLevel;
 import addsynth.core.util.constants.Constants;
@@ -22,7 +21,6 @@ public final class TeamManagerBlock extends Block {
 
   public TeamManagerBlock(){
     super(Block.Properties.of(Material.STONE, MaterialColor.METAL).sound(SoundType.STONE).strength(2.0f, Constants.block_resistance));
-    setRegistryName(Names.TEAM_MANAGER);
   }
 
   @Override

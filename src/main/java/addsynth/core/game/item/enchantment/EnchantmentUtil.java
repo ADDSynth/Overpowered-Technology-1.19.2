@@ -19,6 +19,8 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 
 public final class EnchantmentUtil {
 
@@ -73,13 +75,14 @@ public final class EnchantmentUtil {
     if(stack.isEnchanted()){
       final ListTag enchantment_tag_list = stack.getEnchantmentTags();
       final int list_size = enchantment_tag_list.size();
+      final IForgeRegistry<Enchantment> registry = ForgeRegistries.ENCHANTMENTS;
       int i;
       String id;
       ResourceLocation id2;
       for(i = 0; i < list_size; i++){
         id = enchantment_tag_list.getCompound(i).getString("id");
         for(final Enchantment enchantment : enchantments){
-          id2 = enchantment.getRegistryName();
+          id2 = registry.getKey(enchantment);
           if(id2 != null){
             if(id.equals(id2.toString())){
               return true;

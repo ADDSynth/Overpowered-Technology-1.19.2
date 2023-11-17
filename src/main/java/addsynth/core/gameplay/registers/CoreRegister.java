@@ -1,7 +1,6 @@
 package addsynth.core.gameplay.registers;
 
 import addsynth.core.ADDSynthCore;
-import addsynth.core.game.RegistryUtil;
 import addsynth.core.gameplay.Core;
 import addsynth.core.gameplay.Trophy;
 import addsynth.core.gameplay.blocks.CautionBlock;
@@ -16,7 +15,6 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.IForgeRegistry;

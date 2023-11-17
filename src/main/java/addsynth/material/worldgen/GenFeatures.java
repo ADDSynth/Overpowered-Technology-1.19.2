@@ -22,6 +22,7 @@ import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraftforge.registries.ForgeRegistries;
 
 // New in 2023, Thanks 100% to Nico Kaupenjoe: https://www.youtube.com/watch?v=vuLKGC0_9p4
 // https://github.com/Tutorials-By-Kaupenjoe/Forge-Tutorial-1.18.1/tree/34-oreGeneration/src/main/java/net/kaupenjoe/tutorialmod/world
@@ -52,7 +53,7 @@ public final class GenFeatures {
 
   private static final <O extends AbstractMaterial & OreMaterial> Holder<PlacedFeature> gen_single_ore(final O material, final WorldgenSingleOreConfig ore_config){
     // Configured Feature:
-    final Holder<ConfiguredFeature<ReplaceBlockConfiguration, ?>> ore_configuration = FeatureUtils.register(material.getOre().getRegistryName().getPath(), Feature.REPLACE_SINGLE_BLOCK, new ReplaceBlockConfiguration(getReplaceableBlockList(material.getOre())));
+    final Holder<ConfiguredFeature<ReplaceBlockConfiguration, ?>> ore_configuration = FeatureUtils.register(ForgeRegistries.BLOCKS.getKey(material.getOre()).getPath(), Feature.REPLACE_SINGLE_BLOCK, new ReplaceBlockConfiguration(getReplaceableBlockList(material.getOre())));
     // Placement Modifiers:
     // TODO: Change uniform placement to triangle placement. Extend into the new lower depths below Y=0.
     final HeightRangePlacement height_range_placement = HeightRangePlacement.uniform(VerticalAnchor.absolute(ore_config.min_height.get()), VerticalAnchor.absolute(ore_config.max_height.get()));
@@ -63,7 +64,7 @@ public final class GenFeatures {
 
   private static final <O extends AbstractMaterial & OreMaterial> Holder<PlacedFeature> gen_standard_ore(final O material, final WorldgenOreConfig ore_config){
     // Configured Feature:
-    final Holder<ConfiguredFeature<OreConfiguration, ?>> ore_configuration = FeatureUtils.register(material.getOre().getRegistryName().getPath(), Feature.ORE, new OreConfiguration(getReplaceableBlockList(material.getOre()), ore_config.ore_size.get()));
+    final Holder<ConfiguredFeature<OreConfiguration, ?>> ore_configuration = FeatureUtils.register(ForgeRegistries.BLOCKS.getKey(material.getOre()).getPath(), Feature.ORE, new OreConfiguration(getReplaceableBlockList(material.getOre()), ore_config.ore_size.get()));
     // Placement Modifiers:
     final HeightRangePlacement height_range_placement = HeightRangePlacement.uniform(VerticalAnchor.absolute(ore_config.min_height.get()), VerticalAnchor.absolute(ore_config.max_height.get()));
     final List<PlacementModifier> placement_modifiers = List.of(CountPlacement.of(ore_config.tries.get()), InSquarePlacement.spread(), height_range_placement, BiomeFilter.biome());

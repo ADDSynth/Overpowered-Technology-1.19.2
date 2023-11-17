@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 import addsynth.core.game.blocks.TileEntityBlock;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.energy.gameplay.client.GuiProvider;
-import addsynth.energy.gameplay.reference.Names;
 import addsynth.energy.registers.Tiles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -23,7 +22,6 @@ public final class EnergyDiagnosticsBlock extends TileEntityBlock {
 
   public EnergyDiagnosticsBlock(){
     super(Properties.of(Material.METAL, MaterialColor.WOOL).strength(1.5f, 6.0f));
-    setRegistryName(Names.ENERGY_DIAGNOSTICS_BLOCK);
   }
 
   @Override

@@ -3,7 +3,6 @@ package addsynth.energy.gameplay.machines.compressor;
 import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.util.game.MinecraftUtility;
-import addsynth.energy.gameplay.reference.Names;
 import addsynth.energy.gameplay.reference.TextReference;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.energy.registers.Tiles;
@@ -29,7 +28,6 @@ public final class CompressorBlock extends MachineBlock {
 
   public CompressorBlock(){
     super(MaterialColor.WOOL);
-    setRegistryName(Names.COMPRESSOR);
   }
 
   @Override

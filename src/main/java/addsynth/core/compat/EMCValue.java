@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 import moze_intel.projecte.api.ProjectEAPI;
 import moze_intel.projecte.api.proxy.IEMCProxy;
 
@@ -133,10 +134,11 @@ public final class EMCValue {
    *  after a world is loaded. Therefore, this must be called when a player enters a world. */
   public static final void check_items(@Nonnull final String mod_id){
     final IEMCProxy emcProxy = ProjectEAPI.getEMCProxy();
+    final IForgeRegistry<Item> registry = ForgeRegistries.ITEMS;
     
     ResourceLocation name;
     for(Item item : ForgeRegistries.ITEMS){
-      name = item.getRegistryName();
+      name = registry.getKey(item);
       if(name != null){
         if(name.getNamespace().equals(mod_id)){
           if(!emcProxy.hasValue(item)){

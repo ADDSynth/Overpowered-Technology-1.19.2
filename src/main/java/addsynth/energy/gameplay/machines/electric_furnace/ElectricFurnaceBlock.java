@@ -3,7 +3,6 @@ package addsynth.energy.gameplay.machines.electric_furnace;
 import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.util.game.MinecraftUtility;
-import addsynth.energy.gameplay.reference.Names;
 import addsynth.energy.gameplay.reference.TextReference;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.energy.registers.Tiles;
@@ -37,7 +36,6 @@ public final class ElectricFurnaceBlock extends MachineBlock {
 
   public ElectricFurnaceBlock(){
     super(MaterialColor.COLOR_LIGHT_GRAY);
-    setRegistryName(Names.ELECTRIC_FURNACE);
     this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
   }
 

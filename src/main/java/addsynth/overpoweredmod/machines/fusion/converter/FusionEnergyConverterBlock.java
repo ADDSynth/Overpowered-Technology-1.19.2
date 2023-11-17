@@ -4,7 +4,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.util.game.tileentity.TileEntityUtil;
 import addsynth.energy.lib.blocks.MachineBlock;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.TextReference;
 import addsynth.overpoweredmod.machines.data_cable.DataCable;
 import addsynth.overpoweredmod.registers.Tiles;
@@ -25,7 +24,6 @@ public final class FusionEnergyConverterBlock extends MachineBlock {
 
   public FusionEnergyConverterBlock(){
     super(MaterialColor.SNOW);
-    setRegistryName(Names.FUSION_CONVERTER);
     DataCable.addAttachableBlock(this);
   }
 

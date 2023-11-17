@@ -1,6 +1,5 @@
 package addsynth.overpoweredmod.machines.fusion.control;
 
-import addsynth.overpoweredmod.game.reference.Names;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
@@ -15,7 +14,6 @@ public final class FusionControlLaserBeam extends Block {
 
   public FusionControlLaserBeam(){
     super(Block.Properties.of(Material.FIRE).lightLevel((blockstate)->{return 15;}).noCollission());
-    setRegistryName(Names.FUSION_CONTROL_LASER_BEAM);
   }
 
   @Override

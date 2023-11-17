@@ -1,6 +1,5 @@
 package addsynth.material.types.basic;
 
-import addsynth.core.game.RegistryUtil;
 import addsynth.material.ADDSynthMaterials;
 import addsynth.material.blocks.GenericStorageBlock;
 import addsynth.material.blocks.OreBlock;

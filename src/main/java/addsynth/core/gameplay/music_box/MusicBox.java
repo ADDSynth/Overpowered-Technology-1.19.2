@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 import addsynth.core.game.blocks.TileEntityBlock;
 import addsynth.core.gameplay.Core;
 import addsynth.core.gameplay.client.GuiProvider;
-import addsynth.core.gameplay.reference.Names;
 import addsynth.core.gameplay.registers.Tiles;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.core.util.player.PlayerUtil;
@@ -28,7 +27,6 @@ public final class MusicBox extends TileEntityBlock {
 
   public MusicBox(){
     super(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(0.8f));
-    setRegistryName(Names.MUSIC_BOX);
   }
 
   @Override

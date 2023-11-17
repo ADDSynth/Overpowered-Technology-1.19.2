@@ -16,7 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.ForgeRegistryEntry;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.tags.ITag;
 import net.minecraftforge.registries.tags.ITagManager;
 
@@ -37,7 +37,7 @@ public final class Debug {
   public static final void block(final Block block, final BlockPos position){
     ADDSynthCore.log.warn(
       "Debug Block: Type: "+block.getClass().getName()+
-      ", Registry Name: "+block.getRegistryName()+
+      ", Registry Name: "+ForgeRegistries.BLOCKS.getKey(block)+
       ", Translation Key: "+block.getDescriptionId()+
       (position != null ? ", Position: "+position : ""));
   }
@@ -45,7 +45,7 @@ public final class Debug {
   public static final void item(final Item item){
     ADDSynthCore.log.warn(
       "Debug Item: Type: "+item.getClass().getName()+
-      ", Registry Name: "+item.getRegistryName()+
+      ", Registry Name: "+ForgeRegistries.ITEMS.getKey(item)+
       ", Translation Key: "+item.getDescriptionId());
   }
 
@@ -85,11 +85,11 @@ public final class Debug {
             return o1.compareTo(o2);
           }
         }
-        final class RegistryComparer <T extends ForgeRegistryEntry<T>> implements Comparator<ForgeRegistryEntry<T>> {
+        final class NameComparer implements Comparator<ResourceLocation> {
           @SuppressWarnings("null")
           @Override
-          public int compare(ForgeRegistryEntry<T> o1, ForgeRegistryEntry<T> o2){
-            return o1.getRegistryName().toString().compareTo(o2.getRegistryName().toString());
+          public int compare(ResourceLocation o1, ResourceLocation o2){
+            return o1.toString().compareTo(o2.toString());
           }
         }
         
@@ -103,12 +103,13 @@ public final class Debug {
         if(file != null){
           try(final FileWriter writer = new FileWriter(file)){
             writer.write("\nBlock Tags: "+block_tag_list.size()+"\n\n");
+            final IForgeRegistry<Block> registry = ForgeRegistries.BLOCKS;
             Iterator<Block> iterator;
             for(ITag<Block> block_tag : block_tag_list){
               writer.write(block_tag.getKey().location().toString()+" {\n");
               iterator = block_tag.iterator();
               while(iterator.hasNext()){
-                writer.write("  "+iterator.next().getRegistryName()+'\n');
+                writer.write("  "+registry.getKey(iterator.next())+'\n');
               }
               writer.write("}\n\n");
             }
@@ -125,12 +126,13 @@ public final class Debug {
         if(file != null){
           try(final FileWriter writer = new FileWriter(file)){
             writer.write("\nItem Tags: "+item_tag_list.size()+"\n\n");
+            final IForgeRegistry<Item> registry = ForgeRegistries.ITEMS;
             Iterator<Item> iterator;
             for(ITag<Item> item_tag : item_tag_list){
               writer.write(item_tag.getKey().location().toString()+" {\n");
               iterator = item_tag.iterator();
               while(iterator.hasNext()){
-                writer.write("  "+iterator.next().getRegistryName()+'\n');
+                writer.write("  "+registry.getKey(iterator.next())+'\n');
               }
               writer.write("}\n\n");
             }

@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 
 // What? Java doesn't have unsigned numeric types? That's the stupidest thing I've ever heard!
 // https://stackoverflow.com/questions/430346/why-doesnt-java-support-unsigned-ints
@@ -128,13 +129,14 @@ public final class ColorUtil {
         final MinecraftColor[] color_values = MinecraftColor.values();
         final int length = color_values.length;
         final ColorSet[][] set = build_color_list();
+        final IForgeRegistry<Block> registry = ForgeRegistries.BLOCKS;
 
         for(i = 0; i < length; i++){
           writer.write(color_values[i].name+" colors: "+printColor(color_values[i].value)+"\n");
           for(ColorSet color : set[i]){
             writer.write("   "+map_color_names.get(color.mapcolor)+" "+printColor(color.mapcolor.col)+"\n");
             for(Block block : color.blocks){
-              writer.write("      "+block.getRegistryName()+"\n");
+              writer.write("      "+registry.getKey(block)+"\n");
             }
           }
           writer.write("\n\n");

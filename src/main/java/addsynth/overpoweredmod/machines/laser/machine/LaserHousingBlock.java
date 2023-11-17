@@ -7,7 +7,6 @@ import addsynth.core.util.game.MinecraftUtility;
 import addsynth.core.util.game.tileentity.TileEntityUtil;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.overpoweredmod.OverpoweredTechnology;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.TextReference;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.core.BlockPos;
@@ -34,7 +33,6 @@ public final class LaserHousingBlock extends MachineBlock {
 
   public LaserHousingBlock(){
     super(MaterialColor.SNOW);
-    setRegistryName(Names.LASER_HOUSING);
   }
 
   @Override

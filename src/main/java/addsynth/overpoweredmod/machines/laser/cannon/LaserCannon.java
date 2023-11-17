@@ -7,7 +7,6 @@ import addsynth.core.util.constants.DirectionConstant;
 import addsynth.core.util.world.WorldUtil;
 import addsynth.overpoweredmod.game.core.DeviceColor;
 import addsynth.overpoweredmod.game.core.Laser;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.OverpoweredBlocks;
 import addsynth.overpoweredmod.game.reference.TextReference;
 import net.minecraft.core.BlockPos;
@@ -108,18 +107,17 @@ public final class LaserCannon extends Block implements SimpleWaterloggedBlock {
   }
 
   public LaserCannon(final DeviceColor color){
-    this(color.laser_cannon, color.index);
+    this(color.index);
   }
   
   public LaserCannon(){
     // TODO: This file should be split into an AbstractLaserCannon, and derived LaserCannon and FusionLaser.
-    this(Names.FUSION_CONTROL_LASER, -1);
+    this(-1);
   }
 
-  public LaserCannon(final ResourceLocation name, final int color){
+  public LaserCannon(final int color){
     super(Block.Properties.of(Material.METAL, color >= 0 ? MaterialColor.STONE : MaterialColor.COLOR_GRAY)
       .sound(SoundType.METAL).strength(3.5f, 6.0f).dynamicShape());
-    setRegistryName(name);
     this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
     this.color = color;
   }

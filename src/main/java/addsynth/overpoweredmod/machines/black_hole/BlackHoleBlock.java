@@ -2,7 +2,6 @@ package addsynth.overpoweredmod.machines.black_hole;
 
 import javax.annotation.Nullable;
 import addsynth.core.game.blocks.TileEntityBlock;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,7 +24,6 @@ public final class BlackHoleBlock extends TileEntityBlock {
   public BlackHoleBlock(){
     super(Block.Properties.of(Material.PORTAL, MaterialColor.COLOR_BLACK).noCollission());
     // setResistance(100.0f);
-    setRegistryName(Names.BLACK_HOLE);
   }
 
   @Override

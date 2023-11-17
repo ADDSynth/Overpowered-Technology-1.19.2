@@ -1,6 +1,5 @@
 package addsynth.overpoweredmod.blocks;
 
-import addsynth.overpoweredmod.game.reference.Names;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
@@ -15,7 +14,6 @@ public final class NullBlock extends Block {
 
   public NullBlock(){
     super(Block.Properties.of(Material.AIR).noCollission());
-    setRegistryName(Names.NULL_BLOCK);
   }
 
   @Override

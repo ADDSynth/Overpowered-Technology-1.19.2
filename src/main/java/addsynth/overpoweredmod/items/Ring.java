@@ -6,7 +6,6 @@ import addsynth.core.compat.Compatibility;
 import addsynth.core.game.item.constants.ItemValue;
 import addsynth.overpoweredmod.compatability.curios.CuriosCapabilityProvider;
 import addsynth.overpoweredmod.compatability.curios.RingEffects;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.items.register.OverpoweredItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -22,8 +21,8 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 
 public final class Ring extends OverpoweredItem {
 
-  public Ring(final int ring_id){
-    super(Names.MAGIC_RING[ring_id], new Item.Properties().stacksTo(1));
+  public Ring(){
+    super(new Item.Properties().stacksTo(1));
   }
 
   @Override

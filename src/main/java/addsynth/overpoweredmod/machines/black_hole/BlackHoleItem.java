@@ -2,7 +2,6 @@ package addsynth.overpoweredmod.machines.black_hole;
 
 import addsynth.core.util.game.MessageUtil;
 import addsynth.overpoweredmod.assets.CreativeTabs;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.OverpoweredBlocks;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -16,7 +15,6 @@ public final class BlackHoleItem extends BlockItem {
 
   public BlackHoleItem(){
     super(OverpoweredBlocks.black_hole.get(), new Item.Properties().tab(CreativeTabs.creative_tab).rarity(Rarity.EPIC));
-    setRegistryName(Names.BLACK_HOLE);
   }
 
   @Override

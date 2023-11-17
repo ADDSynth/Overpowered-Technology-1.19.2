@@ -1,6 +1,5 @@
 package addsynth.energy.registers;
 
-import addsynth.core.game.RegistryUtil;
 import addsynth.energy.ADDSynthEnergy;
 import addsynth.energy.gameplay.EnergyBlocks;
 import addsynth.energy.gameplay.machines.circuit_fabricator.CircuitFabricatorBlock;

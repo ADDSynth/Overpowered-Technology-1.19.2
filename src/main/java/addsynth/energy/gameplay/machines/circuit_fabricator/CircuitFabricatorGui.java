@@ -15,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public final class CircuitFabricatorGui extends GuiEnergyBase<TileCircuitFabricator, CircuitFabricatorContainer> {
 
@@ -76,8 +77,7 @@ public final class CircuitFabricatorGui extends GuiEnergyBase<TileCircuitFabrica
 
   private final void onItemSelected(final ItemStack item, final int index){
     if(item != null){
-      @SuppressWarnings("null")
-      final String item_name = item.getItem().getRegistryName().toString();
+      final String item_name = ForgeRegistries.ITEMS.getKey(item.getItem()).toString();
       NetworkHandler.INSTANCE.sendToServer(new ChangeCircuitFabricatorRecipe(tile.getBlockPos(), item_name));
       selected_item = StringUtil.translate(item.getDescriptionId());
     }

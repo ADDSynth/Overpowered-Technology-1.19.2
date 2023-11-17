@@ -5,7 +5,6 @@ import javax.annotation.Nullable;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.energy.gameplay.reference.TextReference;
 import addsynth.energy.lib.blocks.MachineBlock;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -29,7 +28,6 @@ public final class MatterCompressorBlock extends MachineBlock {
 
   public MatterCompressorBlock(){
     super(MaterialColor.COLOR_BLACK);
-    setRegistryName(Names.MATTER_COMPRESSOR);
   }
 
   @Override

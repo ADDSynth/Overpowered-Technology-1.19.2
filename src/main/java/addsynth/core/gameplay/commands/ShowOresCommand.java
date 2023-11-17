@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.tags.ITag;
 
 public final class ShowOresCommand {
@@ -141,6 +142,7 @@ public final class ShowOresCommand {
       final int x_coord = BlockMath.get_first_block_in_chunk(position.getX()) - offset;
       final int z_coord = BlockMath.get_first_block_in_chunk(position.getZ()) - offset;
       final int full_size = size * WorldConstants.chunk_size;
+      final IForgeRegistry<Block> registry = ForgeRegistries.BLOCKS;
       int x;
       int y;
       int z;
@@ -156,7 +158,7 @@ public final class ShowOresCommand {
             blockstate = world.getBlockState(new_position);
             block = blockstate.getBlock();
             if(ore_blocks.contains(block)){
-              text = block.getRegistryName().toString();
+              text = registry.getKey(block).toString();
               if(block_count.containsKey(text)){
                 block_count.put(text, block_count.get(text)+1);
               }
@@ -223,7 +225,7 @@ public final class ShowOresCommand {
     if(entity != null){
       final Block check_block = block_state_input.getState().getBlock();
       @SuppressWarnings("null")
-      final String block_name = check_block.getRegistryName().toString(); // can't translate
+      final String block_name = ForgeRegistries.BLOCKS.getKey(check_block).toString(); // can't translate
       final Level world = source.getLevel();
       final BlockPos position = entity.blockPosition();
       final int chunks = size * size;

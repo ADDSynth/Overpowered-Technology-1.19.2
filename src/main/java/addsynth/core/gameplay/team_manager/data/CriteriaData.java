@@ -13,6 +13,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 
 public final class CriteriaData {
 
@@ -45,16 +47,17 @@ public final class CriteriaData {
     CriteriaData.blocks = block_list.toArray(new String[size]);
   }
   
-  @SuppressWarnings("null")
   private static final void calculateItems(){
     final Collection<Item> items = CommonUtil.getAllItems();
     final int size = items.size();
     final ArrayList<String> item_list = new ArrayList<String>(size);
     final ArrayList<String> item_with_durability_list = new ArrayList<String>();
+    final IForgeRegistry<Item> registry = ForgeRegistries.ITEMS;
     for(Item item : items){
-      item_list.add(item.getRegistryName().toString());
+      final String name = registry.getKey(item).toString();
+      item_list.add(name);
       if(item.canBeDepleted()){
-        item_with_durability_list.add(item.getRegistryName().toString());
+        item_with_durability_list.add(name);
       }
     }
     Collections.sort(item_list);
