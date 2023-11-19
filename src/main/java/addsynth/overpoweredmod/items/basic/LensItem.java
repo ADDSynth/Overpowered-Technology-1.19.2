@@ -17,7 +17,6 @@ public final class LensItem extends OverpoweredItem {
   // https://minecraft.gamepedia.com/Formatting_codes
 
   public LensItem(final DeviceColor color){
-    super(color.lens_name);
     this.index = color.index;
     color_code = color.format_code;
   }

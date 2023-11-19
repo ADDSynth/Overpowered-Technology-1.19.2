@@ -7,6 +7,7 @@ import addsynth.material.blocks.OreBlock;
 import addsynth.material.items.MaterialItem;
 import addsynth.material.types.OreMaterial;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.MaterialColor;
@@ -34,17 +35,17 @@ public final class CustomMetal extends Metal implements OreMaterial {
     nugget = RegistryObject.create(new ResourceLocation(ADDSynthMaterials.MOD_ID, name+"_nugget"), ForgeRegistries.ITEMS);
   }
   
-  public final void registerBlocks(final IForgeRegistry<Block> game){
-    game.register(new MetalBlock(block.getId(), color));
-    game.register(new OreBlock(ore.getId()));
+  public final void registerBlocks(final IForgeRegistry<Block> registry){
+    registry.register(block.getId(), new MetalBlock(color));
+    registry.register(ore.getId(),   new OreBlock());
   }
   
-  public final void registerItems(final IForgeRegistry<Item> game){
-    game.register(new MaterialItem(ingot.getId()));
-    game.register(RegistryUtil.createItemBlock(block, ADDSynthMaterials.creative_tab));
-    game.register(RegistryUtil.createItemBlock(ore,   ADDSynthMaterials.creative_tab));
+  public final void registerItems(final IForgeRegistry<Item> registry){
+    registry.register(ingot.getId(), new MaterialItem());
+    registry.register(block.getId(), new BlockItem(block.get(), new Item.Properties().tab(ADDSynthMaterials.creative_tab)));
+    registry.register(ore.getId(),   new BlockItem(ore.get(),   new Item.Properties().tab(ADDSynthMaterials.creative_tab)));
     if(Compatibility.ADDSYNTH_ENERGY.loaded){
-      game.register(new MaterialItem(plate_name));
+      registry.register(plate_name, new MaterialItem());
     }
   }
   

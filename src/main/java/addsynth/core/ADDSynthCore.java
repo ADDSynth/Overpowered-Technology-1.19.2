@@ -15,6 +15,7 @@ import addsynth.core.util.CommonUtil;
 import addsynth.core.util.constants.DevStage;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -46,7 +47,7 @@ public final class ADDSynthCore {
   public static final CreativeModeTab creative_tab = new CreativeModeTab("addsynthcore"){
     @Override
     public final ItemStack makeIcon(){
-      return new ItemStack(RegistryUtil.getItemBlock(Core.caution_block), 1);
+      return new ItemStack(Item.BY_BLOCK.get(Core.caution_block.get()), 1);
     }
   };
 

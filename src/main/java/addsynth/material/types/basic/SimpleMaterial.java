@@ -24,8 +24,8 @@ public final class SimpleMaterial extends AbstractMaterial {
      item = RegistryObject.create( item_name, ForgeRegistries.ITEMS);
   }
   
-  public final void registerItems(final IForgeRegistry<Item> game){
-    game.register(new MaterialItem(item_name));
+  public final void registerItems(final IForgeRegistry<Item> registry){
+    registry.register(item_name, new MaterialItem());
   }
 
 }

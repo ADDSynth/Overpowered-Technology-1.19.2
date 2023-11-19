@@ -5,7 +5,6 @@ import javax.annotation.Nonnull;
 import addsynth.core.game.item.constants.ArmorMaterial;
 import addsynth.core.game.item.constants.EquipmentType;
 import addsynth.overpoweredmod.OverpoweredTechnology;
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.items.register.OverpoweredItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -14,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryObject;
 
 public final class UnidentifiedItem extends OverpoweredItem {
@@ -27,7 +27,6 @@ public final class UnidentifiedItem extends OverpoweredItem {
 
   /** Use this constructor to create unidentified rings. */
   public UnidentifiedItem(final int ring_id){
-    super(Names.UNIDENTIFIED_RING[ring_id]);
     this.ring_id = ring_id;
     armor_material = null;
     equipment_type = null;
@@ -35,10 +34,15 @@ public final class UnidentifiedItem extends OverpoweredItem {
 
   /** Use this constructor to create unidentified armor pieces. */
   public UnidentifiedItem(@Nonnull final ArmorMaterial material, @Nonnull final EquipmentType type){
-    super(getResourceLocation(material, type));
     this.ring_id = -1;
     this.armor_material = material;
     this.equipment_type = type;
+  }
+
+  public static final void register(final IForgeRegistry<Item> registry, final ArmorMaterial material, final EquipmentType equipment){
+    final ResourceLocation name = getResourceLocation(material, equipment);
+    registry.register(name, new UnidentifiedItem(material, equipment));
+    list.computeIfAbsent(name, n -> RegistryObject.create(n, ForgeRegistries.ITEMS));
   }
 
   /** This is used to create the ResourceLocation from the {@link ArmorMaterial} and {@link EquipmentType}. */

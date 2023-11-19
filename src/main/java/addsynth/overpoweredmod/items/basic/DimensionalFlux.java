@@ -1,6 +1,5 @@
 package addsynth.overpoweredmod.items.basic;
 
-import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.items.register.OverpoweredItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -10,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 public final class DimensionalFlux extends OverpoweredItem {
 
   public DimensionalFlux(){
-    super(Names.DIMENSIONAL_FLUX);
   }
   
   @Override

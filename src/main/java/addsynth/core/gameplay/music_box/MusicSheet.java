@@ -35,7 +35,6 @@ public final class MusicSheet extends CoreItem {
   // See how vanilla handles the Ender Eye, an item that is used on blocks and by itself.
 
   public MusicSheet(){
-    super(Names.MUSIC_SHEET);
   }
 
   @Override

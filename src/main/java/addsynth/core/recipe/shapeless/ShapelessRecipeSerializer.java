@@ -13,10 +13,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 /** REPLICA: Code here is copied from {@link net.minecraft.world.item.crafting.ShapelessRecipe.Serializer ShapelessRecipe.Serializer} */
-public class ShapelessRecipeSerializer<T extends AbstractRecipe> extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<T> {
+public class ShapelessRecipeSerializer<T extends AbstractRecipe> implements RecipeSerializer<T> {
 
   private final int max_size;
   private final Class<T> recipe_type;

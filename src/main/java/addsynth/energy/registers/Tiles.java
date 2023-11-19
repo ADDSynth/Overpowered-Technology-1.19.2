@@ -1,5 +1,7 @@
 package addsynth.energy.registers;
 
+import addsynth.core.game.registry.BlockEntityHolder;
+import addsynth.energy.gameplay.EnergyBlocks;
 import addsynth.energy.gameplay.machines.circuit_fabricator.TileCircuitFabricator;
 import addsynth.energy.gameplay.machines.compressor.TileCompressor;
 import addsynth.energy.gameplay.machines.electric_furnace.TileElectricFurnace;
@@ -9,34 +11,31 @@ import addsynth.energy.gameplay.machines.energy_wire.TileEnergyWire;
 import addsynth.energy.gameplay.machines.generator.TileGenerator;
 import addsynth.energy.gameplay.machines.universal_energy_interface.TileUniversalEnergyInterface;
 import addsynth.energy.gameplay.reference.Names;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public final class Tiles {
 
-  public static final RegistryObject<BlockEntityType<TileEnergyWire>> ENERGY_WIRE =
-    RegistryObject.create(Names.ENERGY_WIRE, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileEnergyWire> ENERGY_WIRE =
+    new BlockEntityHolder<>(Names.ENERGY_WIRE, TileEnergyWire::new, EnergyBlocks.wire);
 
-  public static final RegistryObject<BlockEntityType<TileGenerator>> GENERATOR =
-    RegistryObject.create(Names.GENERATOR, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileGenerator> GENERATOR =
+    new BlockEntityHolder<>(Names.GENERATOR, TileGenerator::new, EnergyBlocks.generator);
 
-  public static final RegistryObject<BlockEntityType<TileEnergyStorage>> ENERGY_CONTAINER =
-    RegistryObject.create(Names.ENERGY_STORAGE, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileEnergyStorage> ENERGY_CONTAINER =
+    new BlockEntityHolder<>(Names.ENERGY_STORAGE, TileEnergyStorage::new, EnergyBlocks.energy_storage);
 
-  public static final RegistryObject<BlockEntityType<TileCompressor>> COMPRESSOR =
-    RegistryObject.create(Names.COMPRESSOR, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileCompressor> COMPRESSOR =
+    new BlockEntityHolder<>(Names.COMPRESSOR, TileCompressor::new, EnergyBlocks.compressor);
 
-  public static final RegistryObject<BlockEntityType<TileElectricFurnace>> ELECTRIC_FURNACE =
-    RegistryObject.create(Names.ELECTRIC_FURNACE, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileElectricFurnace> ELECTRIC_FURNACE =
+    new BlockEntityHolder<>(Names.ELECTRIC_FURNACE, TileElectricFurnace::new, EnergyBlocks.electric_furnace);
 
-  public static final RegistryObject<BlockEntityType<TileCircuitFabricator>> CIRCUIT_FABRICATOR =
-    RegistryObject.create(Names.CIRCUIT_FABRICATOR, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileCircuitFabricator> CIRCUIT_FABRICATOR =
+    new BlockEntityHolder<>(Names.CIRCUIT_FABRICATOR, TileCircuitFabricator::new, EnergyBlocks.circuit_fabricator);
 
-  public static final RegistryObject<BlockEntityType<TileUniversalEnergyInterface>> UNIVERSAL_ENERGY_INTERFACE =
-    RegistryObject.create(Names.UNIVERSAL_ENERGY_INTERFACE, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileUniversalEnergyInterface> UNIVERSAL_ENERGY_INTERFACE =
+    new BlockEntityHolder<>(Names.UNIVERSAL_ENERGY_INTERFACE, TileUniversalEnergyInterface::new, EnergyBlocks.universal_energy_machine);
 
-  public static final RegistryObject<BlockEntityType<TileEnergyDiagnostics>> ENERGY_DIAGNOSTICS_BLOCK =
-    RegistryObject.create(Names.ENERGY_DIAGNOSTICS_BLOCK, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileEnergyDiagnostics> ENERGY_DIAGNOSTICS_BLOCK =
+    new BlockEntityHolder<>(Names.ENERGY_DIAGNOSTICS_BLOCK, TileEnergyDiagnostics::new, EnergyBlocks.energy_diagnostics_block);
 
 }

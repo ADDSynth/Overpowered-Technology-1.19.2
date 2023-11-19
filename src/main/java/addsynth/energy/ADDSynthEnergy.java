@@ -25,6 +25,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -52,7 +53,7 @@ public class ADDSynthEnergy {
   public static final CreativeModeTab creative_tab = new CreativeModeTab("addsynth_energy"){
     @Override
     public final ItemStack makeIcon(){
-      return new ItemStack(RegistryUtil.getItemBlock(EnergyBlocks.wire));
+      return new ItemStack(Item.BY_BLOCK.get(EnergyBlocks.wire.get()));
     }
   };
 

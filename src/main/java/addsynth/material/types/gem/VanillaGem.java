@@ -21,8 +21,8 @@ public final class VanillaGem extends Gem implements OreMaterial {
     this.ore = ore;
   }
 
-  public final void registerItems(final IForgeRegistry<Item> game){
-    game.register(new MaterialItem(shard.getId()));
+  public final void registerItems(final IForgeRegistry<Item> registry){
+    registry.register(shard.getId(), new MaterialItem());
   }
   
   @Override

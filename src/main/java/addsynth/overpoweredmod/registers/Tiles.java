@@ -1,6 +1,8 @@
 package addsynth.overpoweredmod.registers;
 
+import addsynth.core.game.registry.BlockEntityHolder;
 import addsynth.overpoweredmod.game.reference.Names;
+import addsynth.overpoweredmod.game.reference.OverpoweredBlocks;
 import addsynth.overpoweredmod.machines.advanced_ore_refinery.TileAdvancedOreRefinery;
 import addsynth.overpoweredmod.machines.black_hole.TileBlackHole;
 import addsynth.overpoweredmod.machines.crystal_matter_generator.TileCrystalMatterGenerator;
@@ -19,64 +21,61 @@ import addsynth.overpoweredmod.machines.portal.control_panel.TilePortalControlPa
 import addsynth.overpoweredmod.machines.portal.frame.TilePortalFrame;
 import addsynth.overpoweredmod.machines.portal.rift.TilePortal;
 import addsynth.overpoweredmod.machines.suspension_bridge.TileSuspensionBridge;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public final class Tiles {
 
-  public static final RegistryObject<BlockEntityType<TileCrystalEnergyExtractor>> CRYSTAL_ENERGY_EXTRACTOR =
-    RegistryObject.create(Names.CRYSTAL_ENERGY_EXTRACTOR, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileCrystalEnergyExtractor> CRYSTAL_ENERGY_EXTRACTOR =
+    new BlockEntityHolder<>(Names.CRYSTAL_ENERGY_EXTRACTOR, TileCrystalEnergyExtractor::new, OverpoweredBlocks.crystal_energy_extractor);
 
-  public static final RegistryObject<BlockEntityType<TileGemConverter>> GEM_CONVERTER =
-    RegistryObject.create(Names.GEM_CONVERTER, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileGemConverter> GEM_CONVERTER =
+    new BlockEntityHolder<>(Names.GEM_CONVERTER, TileGemConverter::new, OverpoweredBlocks.gem_converter);
 
-  public static final RegistryObject<BlockEntityType<TileInverter>> INVERTER =
-    RegistryObject.create(Names.INVERTER, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileInverter> INVERTER =
+    new BlockEntityHolder<>(Names.INVERTER, TileInverter::new, OverpoweredBlocks.inverter);
 
-  public static final RegistryObject<BlockEntityType<TileMagicInfuser>> MAGIC_INFUSER =
-    RegistryObject.create(Names.MAGIC_INFUSER, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileMagicInfuser> MAGIC_INFUSER =
+    new BlockEntityHolder<>(Names.MAGIC_INFUSER, TileMagicInfuser::new, OverpoweredBlocks.magic_infuser);
 
-  public static final RegistryObject<BlockEntityType<TileIdentifier>> IDENTIFIER =
-    RegistryObject.create(Names.IDENTIFIER, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileIdentifier> IDENTIFIER =
+    new BlockEntityHolder<>(Names.IDENTIFIER, TileIdentifier::new, OverpoweredBlocks.identifier);
 
-  public static final RegistryObject<BlockEntityType<TileAdvancedOreRefinery>> ADVANCED_ORE_REFINERY =
-    RegistryObject.create(Names.ADVANCED_ORE_REFINERY, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileAdvancedOreRefinery> ADVANCED_ORE_REFINERY =
+    new BlockEntityHolder<>(Names.ADVANCED_ORE_REFINERY, TileAdvancedOreRefinery::new, OverpoweredBlocks.advanced_ore_refinery);
 
-  public static final RegistryObject<BlockEntityType<TileCrystalMatterGenerator>> CRYSTAL_MATTER_REPLICATOR =
-    RegistryObject.create(Names.CRYSTAL_MATTER_GENERATOR, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileCrystalMatterGenerator> CRYSTAL_MATTER_REPLICATOR =
+    new BlockEntityHolder<>(Names.CRYSTAL_MATTER_GENERATOR, TileCrystalMatterGenerator::new, OverpoweredBlocks.crystal_matter_generator);
 
-  public static final RegistryObject<BlockEntityType<TileSuspensionBridge>> ENERGY_SUSPENSION_BRIDGE =
-    RegistryObject.create(Names.ENERGY_SUSPENSION_BRIDGE, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileSuspensionBridge> ENERGY_SUSPENSION_BRIDGE =
+    new BlockEntityHolder<>(Names.ENERGY_SUSPENSION_BRIDGE, TileSuspensionBridge::new, OverpoweredBlocks.energy_suspension_bridge);
 
-  public static final RegistryObject<BlockEntityType<TileDataCable>> DATA_CABLE =
-    RegistryObject.create(Names.DATA_CABLE, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileDataCable> DATA_CABLE =
+    new BlockEntityHolder<>(Names.DATA_CABLE, TileDataCable::new, OverpoweredBlocks.data_cable);
 
-  public static final RegistryObject<BlockEntityType<TilePortalControlPanel>> PORTAL_CONTROL_PANEL =
-    RegistryObject.create(Names.PORTAL_CONTROL_PANEL, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TilePortalControlPanel> PORTAL_CONTROL_PANEL =
+    new BlockEntityHolder<>(Names.PORTAL_CONTROL_PANEL, TilePortalControlPanel::new, OverpoweredBlocks.portal_control_panel);
 
-  public static final RegistryObject<BlockEntityType<TilePortalFrame>> PORTAL_FRAME =
-    RegistryObject.create(Names.PORTAL_FRAME, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TilePortalFrame> PORTAL_FRAME =
+    new BlockEntityHolder<>(Names.PORTAL_FRAME, TilePortalFrame::new, OverpoweredBlocks.portal_frame);
 
-  public static final RegistryObject<BlockEntityType<TilePortal>> PORTAL_RIFT =
-    RegistryObject.create(Names.PORTAL_RIFT, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TilePortal> PORTAL_RIFT =
+    new BlockEntityHolder<>(Names.PORTAL_RIFT, TilePortal::new, OverpoweredBlocks.portal);
 
-  public static final RegistryObject<BlockEntityType<TileLaserHousing>> LASER_MACHINE =
-    RegistryObject.create(Names.LASER_HOUSING, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileLaserHousing> LASER_MACHINE =
+    new BlockEntityHolder<>(Names.LASER_HOUSING, TileLaserHousing::new, OverpoweredBlocks.laser_housing);
 
-  public static final RegistryObject<BlockEntityType<TileFusionEnergyConverter>> FUSION_ENERGY_CONVERTER =
-    RegistryObject.create(Names.FUSION_CONVERTER, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileFusionEnergyConverter> FUSION_ENERGY_CONVERTER =
+    new BlockEntityHolder<>(Names.FUSION_CONVERTER, TileFusionEnergyConverter::new, OverpoweredBlocks.fusion_converter);
 
-  public static final RegistryObject<BlockEntityType<TileFusionChamber>> FUSION_CHAMBER =
-    RegistryObject.create(Names.FUSION_CHAMBER, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileFusionChamber> FUSION_CHAMBER =
+    new BlockEntityHolder<>(Names.FUSION_CHAMBER, TileFusionChamber::new, OverpoweredBlocks.fusion_chamber);
 
-  public static final RegistryObject<BlockEntityType<TileBlackHole>> BLACK_HOLE =
-    RegistryObject.create(Names.BLACK_HOLE, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileBlackHole> BLACK_HOLE =
+    new BlockEntityHolder<>(Names.BLACK_HOLE, TileBlackHole::new, OverpoweredBlocks.black_hole);
 
-  public static final RegistryObject<BlockEntityType<TilePlasmaGenerator>> PLASMA_GENERATOR =
-    RegistryObject.create(Names.PLASMA_GENERATOR, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TilePlasmaGenerator> PLASMA_GENERATOR =
+    new BlockEntityHolder<>(Names.PLASMA_GENERATOR, TilePlasmaGenerator::new, OverpoweredBlocks.plasma_generator);
 
-  public static final RegistryObject<BlockEntityType<TileMatterCompressor>> MATTER_COMPRESSOR =
-    RegistryObject.create(Names.MATTER_COMPRESSOR, ForgeRegistries.BLOCK_ENTITY_TYPES);
+  public static final BlockEntityHolder<TileMatterCompressor> MATTER_COMPRESSOR =
+    new BlockEntityHolder<>(Names.MATTER_COMPRESSOR, TileMatterCompressor::new, OverpoweredBlocks.matter_compressor);
 
 }
