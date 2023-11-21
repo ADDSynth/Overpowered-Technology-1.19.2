@@ -5,7 +5,6 @@ import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.OverpoweredBlocks;
 import addsynth.overpoweredmod.machines.gem_converter.GemConverterRecipe;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import mezz.jei.api.constants.VanillaTypes;
@@ -47,7 +46,7 @@ public final class GemConverterCategory implements IRecipeCategory<GemConverterR
 
   @Override
   public Component getTitle(){
-    return new TranslatableComponent(OverpoweredBlocks.gem_converter.get().getDescriptionId());
+    return Component.translatable(OverpoweredBlocks.gem_converter.get().getDescriptionId());
   }
 
   @Override

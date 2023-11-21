@@ -5,8 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
 public final class ItemListEntry extends AbstractListEntry<ItemStack> {
@@ -34,21 +33,21 @@ public final class ItemListEntry extends AbstractListEntry<ItemStack> {
   public void set(final int entry_id, final ItemStack item){
     this.entry_id = entry_id;
     this.item = item;
-    setMessage(item != null ? new TranslatableComponent(item.getDescriptionId()) : new TextComponent(""));
+    setMessage(item != null ? Component.translatable(item.getDescriptionId()) : Component.empty());
   }
 
-  public void set(final int entry_id, final ItemStack item, final String message){
+  public void set(final int entry_id, final ItemStack item, final Component message){
     this.entry_id = entry_id;
     this.item = item;
     // this.text = message;
-    setMessage(new TextComponent(message));
+    setMessage(message);
   }
 
   @Override
   public void setNull(){
     this.entry_id = -1;
     this.item = null;
-    setMessage(new TextComponent(""));
+    setMessage(Component.empty());
     this.selected = false;
   }
 }

@@ -14,7 +14,7 @@ import addsynth.core.util.java.StringUtil;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.sounds.SoundManager;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public final class MusicButtons {
 
@@ -76,7 +76,7 @@ public final class MusicButtons {
 
     @Override
     public void renderButton(PoseStack matrix, int p_renderButton_1_, int p_renderButton_2_, float p_renderButton_3_){
-      setMessage(new TextComponent(face[tile.get_next_direction()])); // stays up-to-date MAYBE need to simplify this now, should not create things every frame
+      setMessage(Component.literal(face[tile.get_next_direction()])); // stays up-to-date MAYBE need to simplify this now, should not create things every frame
       super.renderButton(matrix, p_renderButton_1_, p_renderButton_2_, p_renderButton_3_);
     }
 
@@ -98,7 +98,7 @@ public final class MusicButtons {
     private final byte track;
 
     public MuteButton(final int x, final int y, final byte track, final TileMusicBox tile){
-      super(x, y, button_size, button_size, new TextComponent(""));
+      super(x, y, button_size, button_size, Component.empty());
       this.tile = tile;
       this.track = track;
     }
@@ -133,7 +133,7 @@ public final class MusicButtons {
     private final byte track;
 
     public TrackInstrumentButton(final int x, final int y, final byte track, final TileMusicBox tile){
-      super(x, y, button_size, button_size, new TextComponent(""));
+      super(x, y, button_size, button_size, Component.empty());
       this.track = track;
       this.tile = tile;
     }
@@ -178,7 +178,7 @@ public final class MusicButtons {
     private final int texture_y;
 
     public SelectInstrumentButton(final int x, final int y, final int instrument){
-      super(x, y, button_size, button_size, new TextComponent(""));
+      super(x, y, button_size, button_size, Component.empty());
       this.instrument = instrument;
       texture_x = instrument_texture_size * (instrument % 4);
       texture_y = instrument_texture_size * (instrument / 4);
@@ -223,7 +223,7 @@ public final class MusicButtons {
     private final int track;
 
     public SwapTrackButton(final int x, final int y, final TileMusicBox tile, final int track){
-      super(x, y, button_width, button_height, new TextComponent(""));
+      super(x, y, button_width, button_height, Component.empty());
       this.tile = tile;
       this.track = track;
     }

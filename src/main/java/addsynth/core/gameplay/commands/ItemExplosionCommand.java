@@ -11,7 +11,7 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
@@ -117,7 +117,7 @@ public final class ItemExplosionCommand {
       item_entity.setPickUpDelay(20);
       world.addFreshEntity(item_entity);
     }
-    command_source.sendSuccess(new TranslatableComponent("commands.addsynthcore.item_explosion.success", item_count), true);
+    command_source.sendSuccess(Component.translatable("commands.addsynthcore.item_explosion.success", item_count), true);
     // \nUse command §b/kill @e[type=item]§r to remove them.
     return item_count;
   }

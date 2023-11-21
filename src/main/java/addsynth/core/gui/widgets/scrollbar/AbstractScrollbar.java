@@ -12,7 +12,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.sounds.SoundManager;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 
 /** <p>A Scrollbar is a widget that goes beside a list of values which the player can
@@ -113,7 +113,7 @@ public abstract class AbstractScrollbar<E, L extends AbstractListEntry<E>> exten
   private BiConsumer<E, Integer> onSelected;
 
   public AbstractScrollbar(int x, int y, int height, L[] list_items, E[] values){
-    super(x, y, scrollbar_gui_width, height, new TextComponent(""));
+    super(x, y, scrollbar_gui_width, height, Component.empty());
     if(height > max_scrollbar_height - 8){
       ADDSynthCore.log.error("Requested Scrollbar height is bigger than Max Scrollbar height!");
     }

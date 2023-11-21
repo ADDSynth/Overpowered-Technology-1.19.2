@@ -9,7 +9,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 
 public final class GuiEnergyDiagnostics extends GuiBase {
 
@@ -42,7 +41,7 @@ public final class GuiEnergyDiagnostics extends GuiBase {
 
   private static final class LeftArrowButton extends AbstractButton {
     public LeftArrowButton(int x, int y){
-      super(x, y, 30, 20, new TextComponent(""));
+      super(x, y, 30, 20, Component.empty());
     }
     @Override
     public void updateNarration(NarrationElementOutput p_169152_){
@@ -54,7 +53,7 @@ public final class GuiEnergyDiagnostics extends GuiBase {
 
   private static final class RightArrowButton extends AbstractButton {
     public RightArrowButton(int x, int y){
-      super(x, y, 30, 20, new TextComponent(""));
+      super(x, y, 30, 20, Component.empty());
     }
     @Override
     public void updateNarration(NarrationElementOutput p_169152_){

@@ -10,7 +10,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.sounds.SoundManager;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public final class RadialButtonGroup extends AbstractButton {
 
@@ -44,7 +44,7 @@ public final class RadialButtonGroup extends AbstractButton {
     this(x, y, options, 0, responder);
   }
   public RadialButtonGroup(int x, int y, String[] options, int default_option, Consumer<Integer> responder){
-    super(x, y, radial_gui_size, line_height*options.length, new TextComponent(""));
+    super(x, y, radial_gui_size, line_height*options.length, Component.empty());
     this.options = options;
     this.option_selected = default_option;
     this.onSelectionChanged = responder;

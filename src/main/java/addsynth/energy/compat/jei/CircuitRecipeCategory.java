@@ -5,7 +5,6 @@ import addsynth.energy.gameplay.machines.circuit_fabricator.recipe.CircuitFabric
 import addsynth.energy.gameplay.reference.GuiReference;
 import addsynth.energy.gameplay.reference.Names;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import mezz.jei.api.constants.VanillaTypes;
@@ -51,7 +50,7 @@ public final class CircuitRecipeCategory implements IRecipeCategory<CircuitFabri
 
   @Override
   public Component getTitle(){
-    return new TranslatableComponent(EnergyBlocks.circuit_fabricator.get().getDescriptionId());
+    return Component.translatable(EnergyBlocks.circuit_fabricator.get().getDescriptionId());
   }
 
   @Override

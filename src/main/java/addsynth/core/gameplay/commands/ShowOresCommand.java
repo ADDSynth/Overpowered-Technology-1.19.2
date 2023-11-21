@@ -18,7 +18,7 @@ import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.blocks.BlockInput;
 import net.minecraft.commands.arguments.blocks.BlockStateArgument;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -213,7 +213,7 @@ public final class ShowOresCommand {
         ADDSynthCore.log.error(e);
       }
 
-      source.sendSuccess(new TextComponent("Ore sample saved to "+ore_sample_file+"."), true);
+      source.sendSuccess(Component.literal("Ore sample saved to "+ore_sample_file+"."), true);
     }
     
     return 0;
@@ -253,11 +253,11 @@ public final class ShowOresCommand {
       }
       if(blocks > 0){
         final String text = StringUtil.build("Found ", blocks, " ", block_name, " in ", chunks, " chunks. Average: ", String.format("%.2f", ((float)blocks/chunks)), " per chunk.");
-        source.sendSuccess(new TextComponent(text), true);
+        source.sendSuccess(Component.literal(text), true);
       }
       else{
         final String text = StringUtil.build("No ", block_name, " found in ", chunks, " chunks.");
-        source.sendSuccess(new TextComponent(text), true);
+        source.sendSuccess(Component.literal(text), true);
       }
     }
     return blocks;

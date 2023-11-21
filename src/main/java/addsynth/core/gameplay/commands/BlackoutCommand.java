@@ -11,7 +11,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ambient.Bat;
@@ -67,7 +67,7 @@ public final class BlackoutCommand {
       }
     }
     // feeback
-    command_source.sendSuccess(new TranslatableComponent(
+    command_source.sendSuccess(Component.translatable(
       "commands.addsynthcore.blackout.success", command_source.getDisplayName().getString(), count
     ), true);
     return number_of_bats;

@@ -4,7 +4,6 @@ import java.util.function.Supplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.PacketDistributor;
@@ -69,7 +68,7 @@ public final class NetworkUtil {
     final int length = data.readInt();
     final Component[] text_components = new Component[length];
     for(i = 0; i < length; i++){
-      text_components[i] = new TextComponent(data.readUtf());
+      text_components[i] = Component.literal(data.readUtf());
     }
     return text_components;
   }

@@ -12,8 +12,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 /**
@@ -25,9 +24,9 @@ public final class OnOffSwitch<T extends BlockEntity & ISwitchableMachine> exten
   private final T tile;
   private boolean power_state;
 
-  private static final TranslatableComponent  on_text = new TranslatableComponent("gui.addsynth_energy.switch.on");
-  private static final TranslatableComponent off_text = new TranslatableComponent("gui.addsynth_energy.switch.off");
-  private static final TextComponent null_state = new TextComponent("[null]");
+  private static final Component  on_text = Component.translatable("gui.addsynth_energy.switch.on");
+  private static final Component off_text = Component.translatable("gui.addsynth_energy.switch.off");
+  private static final Component null_state = Component.literal("[null]");
 
   /* DELETE: Old On/Off Switch constructor. Delete in 2027
    * Call with guiLeft + standard x = 6 and guiTop + standard y = 17.

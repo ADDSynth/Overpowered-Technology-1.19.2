@@ -7,8 +7,9 @@ import addsynth.core.util.game.MessageUtil;
 import addsynth.core.util.world.WorldUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -65,7 +66,7 @@ public class TileEntityUtil {
 
     WorldUtil.delete_block(level, position);
 
-    final TranslatableComponent message = new TranslatableComponent("message.addsynthcore.tileentity_error",
+    final MutableComponent message = Component.translatable("message.addsynthcore.tileentity_error",
       class_name, position.getX(), position.getY(), position.getZ());
 
     message.setStyle(Style.EMPTY.withColor(ChatFormatting.RED));

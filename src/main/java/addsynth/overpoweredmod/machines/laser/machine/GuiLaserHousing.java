@@ -12,7 +12,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.player.Inventory;
 
 public final class GuiLaserHousing extends GuiEnergyBase<TileLaserHousing, ContainerLaserHousing> {
@@ -55,7 +54,7 @@ public final class GuiLaserHousing extends GuiEnergyBase<TileLaserHousing, Conta
     private final TileLaserHousing tile;
 
     public LaserDistanceTextField(Font fontIn, int x, int y, int width, int height, TileLaserHousing tile){
-      super(fontIn, x, y, width, height, new TextComponent(""));
+      super(fontIn, x, y, width, height, Component.empty());
       this.tile = tile;
       setValue(Integer.toString(tile.getLaserDistance()));
       setMaxLength(4); // FEATURE: add a numbers-only textbox to ADDSynthCore. Also add Unsigned textbox. Set text to red if input is invalid.

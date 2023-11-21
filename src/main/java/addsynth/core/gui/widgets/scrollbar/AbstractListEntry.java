@@ -8,7 +8,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.sounds.SoundManager;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public abstract class AbstractListEntry<E> extends AbstractButton {
 
@@ -21,7 +21,7 @@ public abstract class AbstractListEntry<E> extends AbstractButton {
   protected AbstractScrollbar responder;
 
   public AbstractListEntry(int x, int y, int width, int height){
-    super(x, y, width, height, new TextComponent(""));
+    super(x, y, width, height, Component.empty());
   }
 
   public final void setScrollbar(final AbstractScrollbar scrollbar){

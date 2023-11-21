@@ -13,7 +13,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 
 public final class LightningStormCommand {
@@ -108,7 +108,7 @@ public final class LightningStormCommand {
     lightning_chance  = chance;
     lightning_count   = 0;
     do_lightning      = true;
-    command_source.sendSuccess(new TranslatableComponent("commands.addsynthcore.lightning_storm.success", strikes, radius, delay, chance), true);
+    command_source.sendSuccess(Component.translatable("commands.addsynthcore.lightning_storm.success", strikes, radius, delay, chance), true);
     return strikes;
   }
 
@@ -142,20 +142,20 @@ public final class LightningStormCommand {
 
   private static final int stop_lightning(final CommandSourceStack source){
     do_lightning = false;
-    source.sendSuccess(new TranslatableComponent("commands.addsynthcore.lightning_storm.stop"), false);
+    source.sendSuccess(Component.translatable("commands.addsynthcore.lightning_storm.stop"), false);
     return 0;
   }
 
   private static final int query_lightning(final CommandSourceStack source){
     if(do_lightning){
       source.sendSuccess(
-        new TranslatableComponent("commands.addsynthcore.lightning_storm.query.true",
+        Component.translatable("commands.addsynthcore.lightning_storm.query.true",
           lightning_count, lightning_strikes, StringUtil.toPercentageString(lightning_count, lightning_strikes)
         ), false
       );
       return lightning_strikes - lightning_count;
     }
-    source.sendSuccess(new TranslatableComponent("commands.addsynthcore.lightning_storm.query.false"), false);
+    source.sendSuccess(Component.translatable("commands.addsynthcore.lightning_storm.query.false"), false);
     return 0;
   }
 

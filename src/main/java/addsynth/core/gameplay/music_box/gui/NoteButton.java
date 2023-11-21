@@ -8,7 +8,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public final class NoteButton extends AbstractWidget {
   
@@ -24,7 +24,7 @@ public final class NoteButton extends AbstractWidget {
   private final byte frame;
 
   public NoteButton(int x_position, int y_position, byte track, byte frame, TileMusicBox tile){
-    super(x_position, y_position , GuiMusicBox.note_button_width, GuiMusicBox.note_button_height, new TextComponent(note[tile.get_note(frame, track)]));
+    super(x_position, y_position , GuiMusicBox.note_button_width, GuiMusicBox.note_button_height, Component.literal(note[tile.get_note(frame, track)]));
     this.tile = tile;
     this.track = (byte)track;
     this.frame = (byte)frame;
@@ -34,7 +34,7 @@ public final class NoteButton extends AbstractWidget {
   public void render(PoseStack matrix, int p_render_1_, int p_render_2_, float p_render_3_){
     visible = tile.note_exists(track, frame);
     if(visible){
-      setMessage(new TextComponent(note[tile.get_note(frame, track)])); // OPTIMIZE: Find everywhere we're setting the widget message each tick, and don't creat new TextComponents, have them already defined as static somewhere.
+      setMessage(Component.literal(note[tile.get_note(frame, track)])); // OPTIMIZE: Find everywhere we're setting the widget message each tick, and don't creat new TextComponents, have them already defined as static somewhere.
     }
     super.render(matrix, p_render_1_, p_render_2_, p_render_3_);
   }

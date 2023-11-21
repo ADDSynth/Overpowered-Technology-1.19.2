@@ -2,7 +2,6 @@ package addsynth.core.gameplay.team_manager.data;
 
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
 
 public final class ObjectiveDataUnit {
@@ -24,7 +23,7 @@ public final class ObjectiveDataUnit {
   public static final ObjectiveDataUnit decode(final FriendlyByteBuf data){
     final ObjectiveDataUnit objective = new ObjectiveDataUnit();
     objective.name = data.readUtf();
-    objective.display_name = new TextComponent(data.readUtf());
+    objective.display_name = Component.literal(data.readUtf());
     objective.criteria_name = data.readUtf();
     objective.criteria = TeamData.getCriteria(objective.criteria_name);
     objective.criteria_type = TeamData.getCriteriaType(objective.criteria_name);

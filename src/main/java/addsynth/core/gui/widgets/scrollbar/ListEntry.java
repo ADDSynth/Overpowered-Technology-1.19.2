@@ -4,7 +4,7 @@ import addsynth.core.util.color.Color;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public final class ListEntry extends AbstractListEntry<String> {
 
@@ -25,13 +25,13 @@ public final class ListEntry extends AbstractListEntry<String> {
   public void set(final int entry_id, final String message){
     this.entry_id = entry_id;
     // this.text = message;
-    setMessage(new TextComponent(message));
+    setMessage(Component.literal(message));
   }
 
   @Override
   public void setNull(){
     this.entry_id = -1;
-    setMessage(new TextComponent(""));
+    setMessage(Component.empty());
     this.selected = false;
   }
 

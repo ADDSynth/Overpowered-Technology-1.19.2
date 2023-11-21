@@ -11,7 +11,6 @@ import addsynth.overpoweredmod.config.Values;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -31,6 +30,7 @@ public enum RingEffects {
   WATER_BREATHING( 8, "Water Breathing", MobEffects.WATER_BREATHING, false),
   NIGHT_VISION   ( 9, "Night Vision",    MobEffects.NIGHT_VISION,    false),
   INVISIBILITY   (10, "Invisibility",    MobEffects.INVISIBILITY,    false);
+  // TODO: Ring Effects still aren't being translated!
 
   public final int id;
   private final String translation_key;
@@ -101,10 +101,10 @@ public enum RingEffects {
       final RingEffects ring_effect = RingEffects.values()[effect_id];
       if(ring_effect.has_levels){
         final int level = get_ring_effect_level(stack);
-        tooltip.add(new TextComponent(ring_effect.translation_key + " " + level).withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable(ring_effect.translation_key + " " + level).withStyle(ChatFormatting.GRAY));
       }
       else{
-        tooltip.add(new TextComponent(ring_effect.translation_key).withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable(ring_effect.translation_key).withStyle(ChatFormatting.GRAY));
       }
     }
   }

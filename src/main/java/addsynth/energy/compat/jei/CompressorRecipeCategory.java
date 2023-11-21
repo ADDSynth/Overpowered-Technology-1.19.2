@@ -8,7 +8,6 @@ import addsynth.energy.gameplay.machines.compressor.recipe.CompressorRecipe;
 import addsynth.energy.gameplay.reference.GuiReference;
 import addsynth.energy.gameplay.reference.Names;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import mezz.jei.api.constants.VanillaTypes;
@@ -48,7 +47,7 @@ public final class CompressorRecipeCategory implements IRecipeCategory<Compresso
 
   @Override
   public Component getTitle(){
-    return new TranslatableComponent(EnergyBlocks.compressor.get().getDescriptionId());
+    return Component.translatable(EnergyBlocks.compressor.get().getDescriptionId());
   }
 
   @Override

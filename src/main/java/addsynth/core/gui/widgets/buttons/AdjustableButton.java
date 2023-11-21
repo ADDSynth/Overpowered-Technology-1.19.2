@@ -11,7 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 /** Hey! This has a maximum height of 20! So setting it any higher will have no effect. */
 public abstract class AdjustableButton extends AbstractButton {
@@ -28,7 +28,7 @@ public abstract class AdjustableButton extends AbstractButton {
    * @param height
    */
   public AdjustableButton(int x, int y, int width, int height){
-    super(x, y, width, Math.min(height, max_height), new TextComponent(""));
+    super(x, y, width, Math.min(height, max_height), Component.empty());
     if(height > max_height){
       ADDSynthCore.log.warn(StringUtil.build("Cannot set height of ", AdjustableButton.class.getSimpleName(), " higher than ", max_height, "."));
     }
@@ -43,7 +43,7 @@ public abstract class AdjustableButton extends AbstractButton {
    * @param buttonText
    */
   public AdjustableButton(int x, int y, int width, int height, @Nonnull String buttonText){
-    super(x, y, width, Math.min(height, max_height), new TextComponent(buttonText));
+    super(x, y, width, Math.min(height, max_height), Component.literal(buttonText));
     if(height > max_height){
       ADDSynthCore.log.warn(StringUtil.build("Cannot set height of ", AdjustableButton.class.getSimpleName(), " higher than ", max_height, "."));
     }

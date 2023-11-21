@@ -10,7 +10,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public final class TeamManagerGuiButtons {
 
@@ -57,7 +57,7 @@ public final class TeamManagerGuiButtons {
     private final int texture_y = 184;
 
     public MovePlayerToTeamButton(int xIn, int yIn){
-      super(xIn, yIn, player_button_size, player_button_size, new TextComponent(""));
+      super(xIn, yIn, player_button_size, player_button_size, Component.empty());
     }
 
     @Override
@@ -86,7 +86,7 @@ public final class TeamManagerGuiButtons {
     private final int texture_y = 184;
 
     public RemovePlayerFromTeamButton(int xIn, int yIn){
-      super(xIn, yIn, player_button_size, player_button_size, new TextComponent(""));
+      super(xIn, yIn, player_button_size, player_button_size, Component.empty());
     }
 
     @Override

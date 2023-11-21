@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 import addsynth.overpoweredmod.config.MachineValues;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
@@ -23,7 +22,7 @@ public final class LightBlock extends Block {
   @Override
   public void appendHoverText(ItemStack stack, @Nullable BlockGetter worldIn, List<Component> tooltip, TooltipFlag flagIn){
     final String energy = NumberFormat.getIntegerInstance().format(MachineValues.light_block_energy.get());
-    tooltip.add(new TranslatableComponent("gui.addsynth_energy.tooltip.energy", energy).withStyle(ChatFormatting.AQUA));
+    tooltip.add(Component.translatable("gui.addsynth_energy.tooltip.energy", energy).withStyle(ChatFormatting.AQUA));
   }
 
 }

@@ -12,7 +12,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.player.Inventory;
 
 public final class GuiPlasmaGenerator extends GuiEnergyBase<TilePlasmaGenerator, ContainerPlasmaGenerator> {
@@ -32,7 +31,7 @@ public final class GuiPlasmaGenerator extends GuiEnergyBase<TilePlasmaGenerator,
     private final TilePlasmaGenerator tile;
     
     public OutputNumberThresholdTextBox(Font fontIn, int x, int y, int width, int height, TilePlasmaGenerator tile){
-      super(fontIn, x, y, width, height, new TextComponent(""));
+      super(fontIn, x, y, width, height, Component.empty());
       this.tile = tile;
       setValue(Integer.toString(tile.get_output_number())); // have not set responder yet, so it won't react
       setTextColor(16777215);

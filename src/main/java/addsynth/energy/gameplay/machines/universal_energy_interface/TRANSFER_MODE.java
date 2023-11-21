@@ -1,7 +1,7 @@
 package addsynth.energy.gameplay.machines.universal_energy_interface;
 
 import addsynth.energy.gameplay.reference.TextReference;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 
 public enum TRANSFER_MODE {
 
@@ -18,9 +18,9 @@ public enum TRANSFER_MODE {
   /** Allow external machines to extract Energy from us. */
   public final boolean canExtract;
 
-  public final TranslatableComponent title;
+  public final Component title;
 
-  private TRANSFER_MODE(final boolean receive, final boolean extract, final TranslatableComponent title){
+  private TRANSFER_MODE(final boolean receive, final boolean extract, final Component title){
     this.canReceive = receive;
     this.canExtract = extract;
     this.title = title;

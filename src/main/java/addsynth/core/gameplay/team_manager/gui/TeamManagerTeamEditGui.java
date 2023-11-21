@@ -12,7 +12,7 @@ import addsynth.core.gui.widgets.buttons.RadialButtonGroup;
 import addsynth.core.util.java.StringUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public final class TeamManagerTeamEditGui extends GuiBase {
 
@@ -95,8 +95,8 @@ public final class TeamManagerTeamEditGui extends GuiBase {
     final int button_x1 = (( left_x +  left_edge) / 2) - (button_width/2);
     final int button_x2 = ((right_x + right_edge) / 2) - (button_width/2);
     
-    team_id_name           = new EditBox(this.font,  left_x, widget_line_1, left_text_box_width, text_box_height, new TextComponent(""));
-    team_display_name      = new EditBox(this.font, right_x, widget_line_1, right_text_box_width, text_box_height, new TextComponent(""));
+    team_id_name           = new EditBox(this.font,  left_x, widget_line_1, left_text_box_width, text_box_height, Component.empty());
+    team_display_name      = new EditBox(this.font, right_x, widget_line_1, right_text_box_width, text_box_height, Component.empty());
     friendly_fire          = new ClientCheckbox(       left_x, widget_line_2 + 2, friendly_fire_text);
     see_invisible_allys    = new ClientCheckbox(  left_x, widget_line_2 + ColorButtons.button_gui_size + 2, see_invisible_allys_text);
     color_buttons          = new ColorButtons(              right_x, widget_line_2,
@@ -106,8 +106,8 @@ public final class TeamManagerTeamEditGui extends GuiBase {
     );
     nametag_controls       = new RadialButtonGroup(          left_x, widget_line_3, nametag_options);
     death_message_controls = new RadialButtonGroup(         right_x, widget_line_3, death_message_options);
-    member_prefix          = new EditBox(this.font,  left_x, widget_line_4, left_text_box_width, text_box_height, new TextComponent(""));
-    member_suffix          = new EditBox(this.font, right_x, widget_line_4, right_text_box_width, text_box_height, new TextComponent(""));
+    member_prefix          = new EditBox(this.font,  left_x, widget_line_4, left_text_box_width, text_box_height, Component.empty());
+    member_suffix          = new EditBox(this.font, right_x, widget_line_4, right_text_box_width, text_box_height, Component.empty());
     
     addRenderableWidget(friendly_fire);
     addRenderableWidget(see_invisible_allys);

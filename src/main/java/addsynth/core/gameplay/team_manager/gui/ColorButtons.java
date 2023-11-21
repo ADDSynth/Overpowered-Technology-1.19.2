@@ -6,7 +6,7 @@ import addsynth.core.gui.widgets.WidgetUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public final class ColorButtons extends AbstractButton {
 
@@ -32,12 +32,12 @@ public final class ColorButtons extends AbstractButton {
   private final Consumer<Integer> responder;
 
   public ColorButtons(final int x_position, final int y_position){
-    super(x_position, y_position, gui_width, gui_height, new TextComponent(""));
+    super(x_position, y_position, gui_width, gui_height, Component.empty());
     responder = null;
   }
 
   public ColorButtons(final int x_position, final int y_position, final Consumer<Integer> responder){
-    super(x_position, y_position, gui_width, gui_height, new TextComponent(""));
+    super(x_position, y_position, gui_width, gui_height, Component.empty());
     this.responder = responder;
   }
 

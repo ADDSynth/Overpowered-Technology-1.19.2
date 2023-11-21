@@ -17,7 +17,7 @@ import addsynth.core.gui.widgets.scrollbar.TextScrollbar;
 import addsynth.core.util.java.StringUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public final class TeamManagerObjectiveGui extends GuiBase {
 
@@ -94,9 +94,9 @@ public final class TeamManagerObjectiveGui extends GuiBase {
      right_section.setBox(middle_section.right + 6, widget_line_1, guiBox.right       - 6 - scrollbar_width,      guiBox.bottom - 6);
     
     // Name TextBoxes
-    objective_id_name = new EditBox(this.font, left_section.x, left_section.y, left_section_width, text_box_height, new TextComponent(""));
+    objective_id_name = new EditBox(this.font, left_section.x, left_section.y, left_section_width, text_box_height, Component.empty());
     addWidget(objective_id_name);
-    objective_display_name = new EditBox(this.font, left_section.x, widget_line_2, left_section_width, text_box_height, new TextComponent(""));
+    objective_display_name = new EditBox(this.font, left_section.x, widget_line_2, left_section_width, text_box_height, Component.empty());
     addWidget(objective_display_name);
 
     // Criteria Type Selection

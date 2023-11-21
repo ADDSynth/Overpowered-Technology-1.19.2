@@ -3,11 +3,8 @@ package addsynth.core.util.game;
 import javax.annotation.Nonnull;
 import addsynth.core.ADDSynthCore;
 import addsynth.core.util.player.PlayerUtil;
-import net.minecraft.Util;
 import net.minecraft.locale.Language;
-import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.PlayerList;
@@ -39,17 +36,17 @@ public final class MessageUtil {
     if(Language.getInstance().has(translation_key) == false){
       ADDSynthCore.log.warn("Missing translated text for: "+translation_key);
     }
-    player.sendMessage(TextComponentHelper.createComponentTranslation(server, translation_key, arguments), Util.NIL_UUID);
+    player.sendSystemMessage(TextComponentHelper.createComponentTranslation(server, translation_key, arguments));
   }
 
   /** Sends a SYSTEM type message to the player.<br>
    *  It's okay to send a message from server to client, or client to client,<br>
    *  Sending a message from client to server will ONLY translate to English. */
-  public static final void send_to_player(Player player, TranslatableComponent message){
+  public static final void send_to_player(Player player, Component message){
     // if(!(player instanceof ServerPlayer)){
     //   ADDSynthCore.log.warn("Sending a message on the client side will only translate to English! Message: "+message.getKey());
     // }
-    player.sendMessage(message, Util.NIL_UUID);
+    player.sendSystemMessage(message);
   }
 
   public static final void send_to_all_players(final Level world, final String translation_key, final Object ... arguments){
@@ -71,7 +68,10 @@ public final class MessageUtil {
   private static final void send_to_all_players(final MinecraftServer server, final Component text_component){
     final PlayerList player_list = server.getPlayerList();
     if(player_list != null){
-      player_list.broadcastMessage(text_component, ChatType.SYSTEM, Util.NIL_UUID);
+      player_list.broadcastSystemMessage(text_component, false);
+       // MAYBE: There's another Task Tag somewhere, but maybe the way I'm sending messages
+       // to players should actually be game messages / overlay true? Like the "You may not
+       // rest now there are monsters nearby" message.
     }
   }
 
@@ -80,7 +80,7 @@ public final class MessageUtil {
     final MinecraftServer server = world.getServer();
     if(server != null){
       PlayerUtil.allPlayersInWorld(server, world, (ServerPlayer player) -> {
-        player.sendMessage(TextComponentHelper.createComponentTranslation(server, translation_key, arguments), Util.NIL_UUID);
+        player.sendSystemMessage(TextComponentHelper.createComponentTranslation(server, translation_key, arguments));
       });
     }
   }
@@ -90,7 +90,7 @@ public final class MessageUtil {
     final MinecraftServer server = world.getServer();
     if(server != null){
       PlayerUtil.allPlayersInWorld(server, world, (ServerPlayer player) -> {
-        player.sendMessage(text_component, Util.NIL_UUID);
+        player.sendSystemMessage(text_component);
       });
     }
   }

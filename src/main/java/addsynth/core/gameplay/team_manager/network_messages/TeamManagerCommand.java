@@ -5,7 +5,7 @@ import addsynth.core.gameplay.team_manager.data.TeamData;
 import addsynth.core.util.game.MessageUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.scores.Objective;
@@ -531,14 +531,14 @@ public final class TeamManagerCommand {
       team = scoreboard.addPlayerTeam(team_name);
     }
     
-    team.setDisplayName(new TextComponent(display_name.isEmpty() ? team_name : display_name));
+    team.setDisplayName(Component.literal(display_name.isEmpty() ? team_name : display_name));
     team.setAllowFriendlyFire(pvp);
     team.setSeeFriendlyInvisibles(see_invisible_allys);
     team.setColor(ChatFormatting.getById(team_color));
     team.setNameTagVisibility(Visibility.values()[nametag_option]);
     team.setDeathMessageVisibility(Visibility.values()[death_message_option]);
-    team.setPlayerPrefix(new TextComponent(member_prefix));
-    team.setPlayerSuffix(new TextComponent(member_suffix));
+    team.setPlayerPrefix(Component.literal(member_prefix));
+    team.setPlayerSuffix(Component.literal(member_suffix));
     
     // MessageUtil.send_to_player(player, "gui.addsynthcore.team_manager.message.edit_team_success", team_name);
     TeamData.sync();
@@ -552,17 +552,17 @@ public final class TeamManagerCommand {
     final Objective existing_objective = scoreboard.getObjective(objective_name);
     final ObjectiveCriteria criteria = TeamData.getCriteria(criteria_name);
     if(existing_objective == null){
-      scoreboard.addObjective(objective_name, criteria, new TextComponent(display_name), criteria.getDefaultRenderType());
+      scoreboard.addObjective(objective_name, criteria, Component.literal(display_name), criteria.getDefaultRenderType());
     }
     else{
       // Objective exists
       if(criteria_name.equals(existing_objective.getCriteria().getName())){
-        existing_objective.setDisplayName(new TextComponent(display_name));
+        existing_objective.setDisplayName(Component.literal(display_name));
       }
       else{
         // Can't change criteria. Must delete existing Objective and create a new one.
         scoreboard.removeObjective(existing_objective);
-        scoreboard.addObjective(objective_name, criteria, new TextComponent(display_name), criteria.getDefaultRenderType());
+        scoreboard.addObjective(objective_name, criteria, Component.literal(display_name), criteria.getDefaultRenderType());
       }
     }
     TeamData.sync();

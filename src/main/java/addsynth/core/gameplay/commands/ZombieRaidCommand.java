@@ -17,7 +17,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -211,7 +211,7 @@ public final class ZombieRaidCommand {
     for(ServerPlayer player : players){
       // give all players inside radius night vision
       player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, duration * TimeConstants.ticks_per_second, 0, false, false));
-      player.sendMessage(new TranslatableComponent("commands.addsynthcore.zombie_raid.start", number_of_zombies, duration, radius), null);
+      player.sendSystemMessage(Component.translatable("commands.addsynthcore.zombie_raid.start", number_of_zombies, duration, radius));
     }
 
     return number_of_zombies;
@@ -232,17 +232,17 @@ public final class ZombieRaidCommand {
       message_all_players("commands.addsynthcore.zombie_raid.stop");
       return 1;
     }
-    source.sendSuccess(new TranslatableComponent("commands.addsynthcore.zombie_raid.not_occurring"), false);
+    source.sendSuccess(Component.translatable("commands.addsynthcore.zombie_raid.not_occurring"), false);
     return 0;
   }
   
   private static final int query_zombie_raid(final CommandSourceStack source){
     if(do_zombie_raid){
       final int seconds_remaining = (int)Math.ceil((double)(zombie_raid_time - zombie_tick_count) / TimeConstants.ticks_per_second);
-      source.sendSuccess(new TranslatableComponent("commands.addsynthcore.zombie_raid.occurring", seconds_remaining), false);
+      source.sendSuccess(Component.translatable("commands.addsynthcore.zombie_raid.occurring", seconds_remaining), false);
       return seconds_remaining;
     }
-    source.sendSuccess(new TranslatableComponent("commands.addsynthcore.zombie_raid.not_occurring"), false);
+    source.sendSuccess(Component.translatable("commands.addsynthcore.zombie_raid.not_occurring"), false);
     return 0;
   }
   
@@ -259,7 +259,7 @@ public final class ZombieRaidCommand {
   private static final void message_all_players(final String translation_key){
     players.removeIf((ServerPlayer player) -> {return !player.isAlive(); });
     for(ServerPlayer player : players){
-      player.sendMessage(new TranslatableComponent(translation_key), null);
+      player.sendSystemMessage(Component.translatable(translation_key));
     }
   }
   

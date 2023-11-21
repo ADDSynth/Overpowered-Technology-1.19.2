@@ -5,7 +5,6 @@ import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.OverpoweredBlocks;
 import addsynth.overpoweredmod.machines.inverter.InverterRecipe;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import mezz.jei.api.constants.VanillaTypes;
@@ -47,7 +46,7 @@ public final class InverterCategory implements IRecipeCategory<InverterRecipe> {
 
   @Override
   public Component getTitle(){
-    return new TranslatableComponent(OverpoweredBlocks.inverter.get().getDescriptionId());
+    return Component.translatable(OverpoweredBlocks.inverter.get().getDescriptionId());
   }
 
   @Override

@@ -2,7 +2,7 @@ package addsynth.core.gui.widgets.sliders;
 
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 /** 
  *  Using sliders, there will be a button click sound. To solve this, override the onMouseClicked() method,
@@ -21,7 +21,7 @@ public abstract class Slider extends AbstractWidget {
   // private static final int draw_y;
 
   public Slider(int x, int y, int width, int height, int min_value, int max_value, int default_value){
-    super(x, y, width, height, new TextComponent(""));
+    super(x, y, width, height, Component.empty());
     this.min_value = min_value;
     this.max_value = max_value;
     this.default_value = default_value;

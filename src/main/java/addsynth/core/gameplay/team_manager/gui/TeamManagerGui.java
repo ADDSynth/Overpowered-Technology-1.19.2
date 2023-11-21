@@ -16,7 +16,7 @@ import addsynth.core.util.java.StringUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public final class TeamManagerGui extends GuiBase {
 
@@ -239,7 +239,7 @@ public final class TeamManagerGui extends GuiBase {
     addRenderableWidget(delete_objective_button);
     
     // Score Controls
-    new_score = new EditBox(this.font, x_position_2 + text_box_x_adjust, guiBox.top + text_box_y, text_box_width, text_box_height, new TextComponent("0"));
+    new_score = new EditBox(this.font, x_position_2 + text_box_x_adjust, guiBox.top + text_box_y, text_box_width, text_box_height, Component.literal("0"));
     addWidget(new_score);
     final int score_buttons_y = guiBox.top + text_box_y + text_box_height + score_spacing;
     final int[] score_buttons_width = {70, 50, 75, 60};

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import addsynth.core.util.network.NetworkUtil;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.scores.Team;
 
 public final class TeamDataUnit {
@@ -36,9 +35,9 @@ public final class TeamDataUnit {
     data.writeUtf(suffix.getString());
     int i;
     final int length = players.size();
-    final TextComponent[] player_names = new TextComponent[length];
+    final Component[] player_names = new Component[length];
     for(i = 0; i < length; i++){
-      player_names[i] = (TextComponent)players.get(i);
+      player_names[i] = players.get(i);
     }
     NetworkUtil.writeTextComponentArray(data, player_names);
   }
@@ -46,14 +45,14 @@ public final class TeamDataUnit {
   public static final TeamDataUnit decode(final FriendlyByteBuf data){
     final TeamDataUnit team = new TeamDataUnit();
     team.name = data.readUtf();
-    team.display_name = new TextComponent(data.readUtf());
+    team.display_name = Component.literal(data.readUtf());
     team.color = data.readByte();
     team.pvp = data.readBoolean();
     team.see_invisible_allys = data.readBoolean();
     team.nametag_option = data.readByte();
     team.death_message_option = data.readByte();
-    team.prefix = new TextComponent(data.readUtf());
-    team.suffix = new TextComponent(data.readUtf());
+    team.prefix = Component.literal(data.readUtf());
+    team.suffix = Component.literal(data.readUtf());
     team.players = new ArrayList<Component>();
     for(final Component t : NetworkUtil.readTextComponentArray(data)){
       team.players.add(t);
