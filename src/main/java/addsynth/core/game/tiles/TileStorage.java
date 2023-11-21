@@ -1,7 +1,5 @@
 package addsynth.core.game.tiles;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import addsynth.core.game.inventory.CommonInventory;
 import addsynth.core.game.inventory.IStorageInventory;
 import addsynth.core.game.inventory.InventoryUtil;
@@ -11,8 +9,10 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /** This is a TileEntity that has a single storage inventory.
  *  It has no Item filter and machines can insert and extract items. */
@@ -38,10 +38,10 @@ public abstract class TileStorage extends TileBase implements IStorageInventory 
   }
 
   @Override
-  @Nonnull
-  public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction direction){
+  @NotNull
+  public <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction direction){
     if(remove == false){
-      if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+      if(capability == ForgeCapabilities.ITEM_HANDLER){
         return InventoryUtil.getInventoryCapability(inventory);
       }
       return super.getCapability(capability, direction);

@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Base class for inventories in ADDSynth's Mods. Contains all common functionality.
@@ -49,7 +50,7 @@ public class CommonInventory extends ItemStackHandler {
   }
 
   @Override
-  public final void setStackInSlot(final int slot, final @Nonnull ItemStack stack){
+  public final void setStackInSlot(final int slot, final @NotNull ItemStack stack){
     if(is_valid_slot(slot)){
       this.stacks.set(slot, stack);
       onContentsChanged(slot);

@@ -1,7 +1,5 @@
 package addsynth.energy.gameplay.machines.universal_energy_interface;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import addsynth.core.util.java.ArrayUtil;
 import addsynth.energy.compat.energy.EnergyCompat;
 import addsynth.energy.compat.energy.forge.ForgeEnergyIntermediary;
@@ -20,8 +18,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.CapabilityEnergy;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public final class TileUniversalEnergyInterface extends BasicEnergyNetworkTile
   // The Universal Energy Interface should REMAIN as an ICustomEnergyUser
@@ -111,9 +111,10 @@ public final class TileUniversalEnergyInterface extends BasicEnergyNetworkTile
   }
 
   @Override
-  public @Nonnull <T> LazyOptional<T> getCapability(final @Nonnull Capability<T> capability, final @Nullable Direction facing){
+  @NotNull
+  public <T> LazyOptional<T> getCapability(final @NotNull Capability<T> capability, final @Nullable Direction facing){
     if(remove == false){
-      if(capability == CapabilityEnergy.ENERGY){
+      if(capability == ForgeCapabilities.ENERGY){
         return forge_energy != null ? (LazyOptional.of(()->forge_energy)).cast() : LazyOptional.empty();
       }
       return super.getCapability(capability, facing);

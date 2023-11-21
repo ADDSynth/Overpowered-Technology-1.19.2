@@ -1,8 +1,6 @@
 package addsynth.energy.lib.tiles.machines;
 
 import java.util.function.Predicate;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import addsynth.core.game.inventory.*;
 import addsynth.core.game.inventory.machine.IMachineInventory;
 import addsynth.core.game.inventory.machine.MachineInventory;
@@ -14,8 +12,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /** The Standard Work Machine, can be turned off, has an idle state, and when
  *  it can do work it transfers an item from the input inventory to the working
@@ -174,10 +174,10 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
   }
 
   @Override
-  @Nonnull
-  public <T> LazyOptional<T> getCapability(final @Nonnull Capability<T> capability, final @Nullable Direction side){
+  @NotNull
+  public <T> LazyOptional<T> getCapability(final @NotNull Capability<T> capability, final @Nullable Direction side){
     if(remove == false){
-      if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+      if(capability == ForgeCapabilities.ITEM_HANDLER){
         return InventoryUtil.getInventoryCapability(inventory.getInputInventory(), inventory.getOutputInventory(), side);
       }
       return super.getCapability(capability, side);

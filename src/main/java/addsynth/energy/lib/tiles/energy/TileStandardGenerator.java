@@ -1,8 +1,6 @@
 package addsynth.energy.lib.tiles.energy;
 
 import java.util.function.Predicate;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import addsynth.core.game.inventory.IInputInventory;
 import addsynth.core.game.inventory.InputInventory;
 import addsynth.core.game.inventory.InventoryUtil;
@@ -13,8 +11,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /** Standard Generators are generators that have an Input inventory and
  *  accept fuel items to be consumed to produce Energy. 
@@ -66,10 +66,10 @@ public abstract class TileStandardGenerator extends TileAbstractGenerator implem
   }
 
   @Override
-  @Nonnull
-  public <T> LazyOptional<T> getCapability(final @Nonnull Capability<T> capability, final @Nullable Direction side){
+  @NotNull
+  public <T> LazyOptional<T> getCapability(final @NotNull Capability<T> capability, final @Nullable Direction side){
     if(remove == false){
-      if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+      if(capability == ForgeCapabilities.ITEM_HANDLER){
         return InventoryUtil.getInventoryCapability(input_inventory, null, side);
       }
       return super.getCapability(capability, side);

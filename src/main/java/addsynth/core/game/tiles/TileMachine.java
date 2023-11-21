@@ -1,7 +1,5 @@
 package addsynth.core.game.tiles;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import addsynth.core.game.inventory.IInputInventory;
 import addsynth.core.game.inventory.IOutputInventory;
 import addsynth.core.game.inventory.InputInventory;
@@ -14,8 +12,10 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /** This is for TileEntities that have an Input Inventory and an Output Inventory,
  *  and possibly a Working Inventory as well. This is a machine that works on items
@@ -48,10 +48,10 @@ public abstract class TileMachine extends TileBase implements IInputInventory, I
   }
 
   @Override
-  @Nonnull
-  public <T> LazyOptional<T> getCapability(final @Nonnull Capability<T> capability, final @Nullable Direction side){
+  @NotNull
+  public <T> LazyOptional<T> getCapability(final @NotNull Capability<T> capability, final @Nullable Direction side){
     if(remove == false){
-      if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+      if(capability == ForgeCapabilities.ITEM_HANDLER){
         return InventoryUtil.getInventoryCapability(input_inventory, output_inventory, side);
       }
       return super.getCapability(capability, side);

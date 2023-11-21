@@ -6,8 +6,8 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 public final class InventoryUtil {
@@ -15,12 +15,12 @@ public final class InventoryUtil {
   /** <p>Used to safely return the Inventory Capability. Use this if your inventory allows bi-directional
    *  transfer of items because we return the inventory regardless of which side we're checking from.<br />
    *  <b>Remember:</b> ONLY USE THIS if you're checking for the
-   *  {@link CapabilityItemHandler#ITEM_HANDLER_CAPABILITY ITEM_HANDLER_CAPABILITY}.</p>
+   *  {@link ForgeCapabilities#ITEM_HANDLER ITEM_HANDLER_CAPABILITY}.</p>
    *  <p>Use case:<br />
    *  <pre><code>
    *  &#64;Override
-   *  public &lt;T&gt; LazyOptional&lt;T&gt; getCapability(&#64;Nonnull Capability&lt;T&gt; capability, &#64;Nullable Direction direction){
-   *    if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+   *  public &lt;T&gt; LazyOptional&lt;T&gt; getCapability(&#64;NotNull Capability&lt;T&gt; capability, &#64;Nullable Direction direction){
+   *    if(capability == ForgeCapabilities.ITEM_HANDLER){
    *      return InventoryUtil.getInventoryCapability(inventory);
    *    }
    *    return super.getCapability(capability, direction);
@@ -36,12 +36,12 @@ public final class InventoryUtil {
   /** <p>Used to return either the Input Inventory or Output Inventory depending on which side
    *  we're querying. Pass null to either inventory if your TileEntity doesn't have them.<br />
    *  <b>Remember</b> ONLY USE THIS if you're checking for the
-   *  {@link net.minecraftforge.items.CapabilityItemHandler#ITEM_HANDLER_CAPABILITY ITEM_HANDLER_CAPABILITY}.</p>
+   *  {@link ForgeCapabilities#ITEM_HANDLER ITEM_HANDLER_CAPABILITY}.</p>
    *  <p>Use case:<br />
    *  <pre><code>
    *  &#64;Override
-   *  public &lt;T&gt; LazyOptional&lt;T&gt; getCapability(&#64;Nonnull Capability&lt;T&gt; capability, &#64;Nullable Direction direction){
-   *    if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+   *  public &lt;T&gt; LazyOptional&lt;T&gt; getCapability(&#64;NotNull Capability&lt;T&gt; capability, &#64;Nullable Direction direction){
+   *    if(capability == ForgeCapabilities.ITEM_HANDLER){
    *      return InventoryUtil.getInventoryCapability(input_inventory, output_inventory, direction);
    *    }
    *    return super.getCapability(capability, direction);

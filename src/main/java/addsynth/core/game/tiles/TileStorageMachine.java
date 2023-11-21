@@ -1,8 +1,6 @@
 package addsynth.core.game.tiles;
 
 import java.util.function.Predicate;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import addsynth.core.game.inventory.IInputInventory;
 import addsynth.core.game.inventory.InputInventory;
 import addsynth.core.game.inventory.InventoryUtil;
@@ -14,8 +12,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /** This is a TileEntity that only has an Input Inventory, thus it also utilizes
  *  an Item filter and prevents machines from taking items out.
@@ -48,10 +48,10 @@ public abstract class TileStorageMachine extends TileBase implements IInputInven
   }
 
   @Override
-  @Nonnull
-  public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction side){
+  @NotNull
+  public <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction side){
     if(remove == false){
-      if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+      if(capability == ForgeCapabilities.ITEM_HANDLER){
         return InventoryUtil.getInventoryCapability(input_inventory, null, side);
       }
       return super.getCapability(capability, side);

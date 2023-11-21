@@ -11,7 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.energy.IEnergyStorage;
 
 public final class EnergyCompat {
@@ -55,7 +55,7 @@ public final class EnergyCompat {
         capability_side = side.getOpposite();
 
         // Forge Energy
-        final IEnergyStorage energy = tile.getCapability(CapabilityEnergy.ENERGY, capability_side).orElse(null);
+        final IEnergyStorage energy = tile.getCapability(ForgeCapabilities.ENERGY, capability_side).orElse(null);
         if(energy != null){
           nodes.add(new CompatEnergyNode(EnergySystem.FORGE, energy, capability_side));
           continue;

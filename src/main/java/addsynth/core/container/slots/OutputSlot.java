@@ -1,12 +1,12 @@
 package addsynth.core.container.slots;
 
-import javax.annotation.Nonnull;
 import addsynth.core.game.inventory.IOutputInventory;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 public final class OutputSlot extends SlotItemHandler {
 
@@ -15,7 +15,7 @@ public final class OutputSlot extends SlotItemHandler {
   }
 
   @Override
-  public final boolean mayPlace(@Nonnull final ItemStack stack){
+  public final boolean mayPlace(@NotNull final ItemStack stack){
     return false;
   }
 

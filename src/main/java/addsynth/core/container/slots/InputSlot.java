@@ -1,11 +1,11 @@
 package addsynth.core.container.slots;
 
 import java.util.function.Predicate;
-import javax.annotation.Nonnull;
 import addsynth.core.game.inventory.IInputInventory;
 import addsynth.core.game.item.constants.ItemConstants;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 public final class InputSlot extends SlotItemHandler {
 
@@ -38,7 +38,7 @@ public final class InputSlot extends SlotItemHandler {
   }
 
   @Override
-  public final boolean mayPlace(@Nonnull final ItemStack stack){
+  public final boolean mayPlace(@NotNull final ItemStack stack){
     if(filter == null){
       return super.mayPlace(stack);
     }
