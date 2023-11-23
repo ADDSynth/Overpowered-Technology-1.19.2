@@ -37,7 +37,7 @@ public final class MinecraftUtility {
   }
 
   public static final Block.Properties setUnbreakable(final Block.Properties properties){
-    return properties.strength(-1.0F, 3600000.0F).noDrops(); // Bedrock, Barrier
+    return properties.strength(-1.0F, 3600000.0F).noLootTable(); // Bedrock, Barrier
   }
 
   /** <p>This is a helper method to get a specific type of TileEntity.

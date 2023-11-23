@@ -13,6 +13,7 @@ import addsynth.core.util.math.block.BlockMath;
 import addsynth.core.util.world.WorldConstants;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.blocks.BlockInput;
@@ -34,7 +35,7 @@ public final class ShowOresCommand {
   private static final int MAX_ORE_SAMPLE_SIZE = 32;
   private static final String ore_sample_file = "ore_sample.txt";
 
-  public static final void register(CommandDispatcher<CommandSourceStack> dispatcher){
+  public static final void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext build_context){
     /*
     dispatcher.register(
       Commands.literal(ADDSynthCore.MOD_ID).requires(
@@ -68,7 +69,7 @@ public final class ShowOresCommand {
         (command_source) -> {return command_source.hasPermission(PermissionLevel.COMMANDS); }
       ).then(
         Commands.literal("count_blocks").then(
-          Commands.argument("block", BlockStateArgument.block()).executes(
+          Commands.argument("block", BlockStateArgument.block(build_context)).executes(
             (command_context) -> { return count_ores(command_context.getSource(), BlockStateArgument.getBlock(command_context, "block"), DEFAULT_ORE_SAMPLE_SIZE); }
           ).then(
             Commands.argument("size", IntegerArgumentType.integer(1, MAX_ORE_SAMPLE_SIZE)).executes(

@@ -86,7 +86,6 @@ public final class Debug {
           }
         }
         final class NameComparer implements Comparator<ResourceLocation> {
-          @SuppressWarnings("null")
           @Override
           public int compare(ResourceLocation o1, ResourceLocation o2){
             return o1.toString().compareTo(o2.toString());

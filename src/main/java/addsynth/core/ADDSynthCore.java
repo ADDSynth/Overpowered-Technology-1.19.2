@@ -120,7 +120,7 @@ public final class ADDSynthCore {
   }
 
   public static final void registerCommands(final RegisterCommandsEvent event){
-    ADDSynthCommands.register(event.getDispatcher());
+    ADDSynthCommands.register(event.getDispatcher(), event.getBuildContext());
   }
 
 }

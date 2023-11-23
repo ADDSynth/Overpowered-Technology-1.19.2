@@ -21,7 +21,7 @@ public final class Events {
   @SubscribeEvent
   public static final void pick_up_item(final ItemPickupEvent event){
     final Item item = event.getStack().getItem();
-    final Player player = event.getPlayer();
+    final Player player = event.getEntity();
     if(item == OverpoweredItems.void_crystal.get()){
       /*
       if(player.dimension.getId() == WeirdDimension.id){

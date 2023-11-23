@@ -28,7 +28,7 @@ public final class EnergyBridge extends RotatedPillarBlock {
   public EnergyBridge(final DeviceColor device_color){
     super(Block.Properties.of(
       new Material(device_color.color, false, true, true, false, false, false, PushReaction.BLOCK)
-    ).lightLevel((blockstate)->{return 11;}).strength(-1.0f, Constants.infinite_resistance).noOcclusion().noDrops());
+    ).lightLevel((blockstate)->{return 11;}).strength(-1.0f, Constants.infinite_resistance).noOcclusion().noLootTable());
   }
 
   public static final BlockState get(final int index, final Direction direction, final Direction.Axis axis){

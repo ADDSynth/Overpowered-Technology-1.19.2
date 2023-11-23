@@ -1,7 +1,7 @@
 package addsynth.material.blocks;
 
-import addsynth.core.util.math.random.RandomUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,8 +32,8 @@ public class OreBlock extends Block {
   }
 
   @Override
-  public final int getExpDrop(BlockState state, LevelReader world, BlockPos pos, int fortune, int silktouch){
-    return silktouch == 0 ? RandomUtil.RandomRange(min_experience, max_experience) : 0;
+  public final int getExpDrop(BlockState state, LevelReader level, RandomSource randomSource, BlockPos pos, int fortuneLevel, int silkTouchLevel){
+    return silkTouchLevel == 0 ? randomSource.nextIntBetweenInclusive(min_experience, max_experience) : 0;
   }
 
 }

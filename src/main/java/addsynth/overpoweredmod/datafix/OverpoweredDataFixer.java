@@ -31,7 +31,7 @@ public final class OverpoweredDataFixer {
      * Trophies were moved from Overpowered to ADDSynthCore.
     */
     
-    return builder.build(Util.bootstrapExecutor());
+    return builder.buildOptimized(Util.bootstrapExecutor());
   }
 
 

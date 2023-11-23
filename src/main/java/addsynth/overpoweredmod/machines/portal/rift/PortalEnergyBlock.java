@@ -32,7 +32,7 @@ public final class PortalEnergyBlock extends TileEntityBlock {
   public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
 
   public PortalEnergyBlock(){
-    super(Block.Properties.of(Material.PORTAL).noCollission().noDrops());
+    super(Block.Properties.of(Material.PORTAL).noCollission().noLootTable());
     // Portal Energy Block needs an ItemBlock form to use as an icon for the Achievement.
   }
 

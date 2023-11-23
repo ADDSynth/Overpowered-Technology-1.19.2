@@ -209,6 +209,7 @@ public final class LaserNetwork extends BlockNetwork<TileLaserHousing> {
     double x;
     double y;
     double z;
+    final long seed = world.random.nextLong();
     for(final ServerPlayer player : server.getPlayerList().getPlayers()){
       if(player.level.dimension() == dimension){
         closest_position = BlockArea.getClosest(positions, player);
@@ -217,7 +218,7 @@ public final class LaserNetwork extends BlockNetwork<TileLaserHousing> {
         z = closest_position.getZ() + 0.5;
         // TODO: Vanilla function PlayerList.broadcast does some additional calculation to only send messages close to the player.
         //       I need to run some tests to see exactly what it does, but I don't have time for that now.
-        player.connection.send(new ClientboundSoundPacket(Sounds.laser_fire_sound.get(), SoundSource.BLOCKS, x, y, z, 2.0f, 1.0f));
+        player.connection.send(new ClientboundSoundPacket(Sounds.laser_fire_sound.get(), SoundSource.BLOCKS, x, y, z, 2.0f, 1.0f, seed));
       }
     }
   }
