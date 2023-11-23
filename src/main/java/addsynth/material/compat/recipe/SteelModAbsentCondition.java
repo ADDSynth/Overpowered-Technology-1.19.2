@@ -20,7 +20,7 @@ public final class SteelModAbsentCondition implements ICondition {
   }
 
   @Override
-  public boolean test(){
+  public boolean test(final IContext context){
     return MaterialsCompat.SteelModAbsent();
   }
 

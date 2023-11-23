@@ -14,7 +14,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 /** This allows people to add their own Magic Infuser recipes, so long as they use a valid
   * Enchantment that is registered with another mod. They may also be able to alter the
@@ -22,7 +21,7 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
   * @since Overpowered Technology version 1.5 (September 26, 2022)
   * @author ADDSynth
   */
-public final class MagicInfuserRecipeSerializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<MagicInfuserRecipe> {
+public final class MagicInfuserRecipeSerializer implements RecipeSerializer<MagicInfuserRecipe> {
 
   public MagicInfuserRecipeSerializer(){
   }

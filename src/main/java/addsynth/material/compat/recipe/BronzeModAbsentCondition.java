@@ -20,7 +20,7 @@ public final class BronzeModAbsentCondition implements ICondition {
   }
 
   @Override
-  public boolean test(){
+  public boolean test(final IContext context){
     return MaterialsCompat.BronzeModAbsent();
   }
 
