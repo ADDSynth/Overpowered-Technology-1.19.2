@@ -1,6 +1,5 @@
 package addsynth.material;
 
-import java.io.File;
 import java.util.stream.Stream;
 import addsynth.core.ADDSynthCore;
 import addsynth.core.compat.Compatibility;
@@ -8,23 +7,16 @@ import addsynth.core.compat.EMCValue;
 import addsynth.core.util.CommonUtil;
 import addsynth.core.util.constants.DevStage;
 import addsynth.material.compat.MaterialsCompat;
-import addsynth.material.config.WorldgenConfig;
-import addsynth.material.worldgen.OreGenerator;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartedEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.InterModComms.IMCMessage;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -53,15 +45,12 @@ public final class ADDSynthMaterials {
     bus.addListener(MaterialsCompat::sendIMCMessages);
     bus.addListener(ADDSynthMaterials::process_imc_messages);
     MinecraftForge.EVENT_BUS.addListener(ADDSynthMaterials::onServerStarted);
-    MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, ADDSynthMaterials::loadBiomes);
     init_config();
   }
 
   private static final void init_config(){
-    new File(FMLPaths.CONFIGDIR.get().toString(), MOD_NAME).mkdir();
-
-    final ModLoadingContext context = ModLoadingContext.get();
-    context.registerConfig(ModConfig.Type.COMMON, WorldgenConfig.CONFIG_SPEC, MOD_NAME+File.separator+"worldgen.toml");
+    // new File(FMLPaths.CONFIGDIR.get().toString(), MOD_NAME).mkdir();
+    // final ModLoadingContext context = ModLoadingContext.get();
   }
 
   private static final void main_setup(final FMLCommonSetupEvent event){
@@ -76,10 +65,6 @@ public final class ADDSynthMaterials {
         EMCValue.check_items(MOD_ID);
       }
     }
-  }
-
-  public static final void loadBiomes(final BiomeLoadingEvent event){ // Just here temporarily
-    OreGenerator.register(event.getCategory(), event.getGeneration());
   }
 
   private static final void process_imc_messages(final InterModProcessEvent event){
