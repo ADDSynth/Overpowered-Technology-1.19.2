@@ -21,8 +21,6 @@ import addsynth.energy.gameplay.machines.generator.GuiGenerator;
 import addsynth.energy.gameplay.machines.universal_energy_interface.GuiUniversalEnergyInterface;
 import addsynth.energy.registers.Containers;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -99,7 +97,6 @@ public class ADDSynthEnergy {
 
   private static final void client_setup(final FMLClientSetupEvent event){
     event.enqueueWork(ADDSynthEnergy::register_guis);
-    set_block_render_types();
   }
 
   private static final void register_guis(){
@@ -109,10 +106,6 @@ public class ADDSynthEnergy {
     MenuScreens.register(Containers.ELECTRIC_FURNACE.get(),           GuiElectricFurnace::new);
     MenuScreens.register(Containers.CIRCUIT_FABRICATOR.get(),         CircuitFabricatorGui::new);
     MenuScreens.register(Containers.UNIVERSAL_ENERGY_INTERFACE.get(), GuiUniversalEnergyInterface::new);
-  }
-
-  private static final void set_block_render_types(){
-    ItemBlockRenderTypes.setRenderLayer(EnergyBlocks.energy_storage.get(), RenderType.translucent());
   }
 
 }

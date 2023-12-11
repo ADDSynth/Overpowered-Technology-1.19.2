@@ -2,5 +2,6 @@
 	"parent": "block/cube_all",
 	"textures": {
 		"all": "overpowered:blocks/null_block"
-	}
+	},
+    "render_type": "translucent"
 }
