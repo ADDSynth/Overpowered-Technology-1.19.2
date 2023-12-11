@@ -207,8 +207,8 @@ dependencies {
     // at runtime, use the full JEI jar
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 
-    compileOnly fg.deobf("curse.maven:projecte-226410:4860859")
-    //runtimeOnly fg.deobf("curse.maven:projecte-226410:4860858")
+    compileOnly "curse.maven:projecte-226410:4860861"
+    runtimeOnly fg.deobf("curse.maven:projecte-226410:4860858")
 
     compileOnly "appeng:appliedenergistics2-forge:${applied_energistics_version}:api"
 
