@@ -27,7 +27,7 @@ import net.minecraftforge.registries.RegistryObject;
 public final class CoreRegister {
 
   @SubscribeEvent
-  public static final void register_blocks(final RegisterEvent event){
+  public static final void register(final RegisterEvent event){
     final ResourceKey key = event.getRegistryKey();
     if(key.equals(ForgeRegistries.Keys.BLOCKS)){
       final IForgeRegistry<Block> registry = event.getForgeRegistry();

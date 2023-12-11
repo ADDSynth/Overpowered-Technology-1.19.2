@@ -1,8 +1,6 @@
 package addsynth.core.util.game;
 
 import javax.annotation.Nullable;
-import addsynth.core.ADDSynthCore;
-import addsynth.core.util.java.StringUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;

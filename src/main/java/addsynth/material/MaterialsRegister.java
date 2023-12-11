@@ -16,7 +16,7 @@ import net.minecraftforge.registries.RegisterEvent;
 public final class MaterialsRegister {
 
   @SubscribeEvent
-  public static final void registerBlocks(final RegisterEvent event){
+  public static final void register(final RegisterEvent event){
     final ResourceKey key = event.getRegistryKey();
     if(key.equals(ForgeRegistries.Keys.BLOCKS)){
       final IForgeRegistry<Block> registry = event.getForgeRegistry();
