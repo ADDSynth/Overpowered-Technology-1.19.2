@@ -18,7 +18,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public final class LaserBeam extends Block {
 
   public LaserBeam(){
-    super(Block.Properties.of(Material.FIRE).noCollission().lightLevel((blockstate)->{return Config.laser_light_level.get();}));
+    super(Block.Properties.of(Material.FIRE).noCollission().lightLevel((BlockState state) -> 15));
   }
 
   @Override
