@@ -82,11 +82,12 @@ public final class NoteButton extends AbstractWidget {
   }
 
   @Override
-  protected boolean clicked(double p_clicked_1_, double p_clicked_3_){
-    // I could probably do this better, but I don't want to touch it right now.
+  protected boolean clicked(double mouse_x, double mouse_y){
+    final double x = (double)this.x;
+    final double y = (double)this.y;
     return this.active &&
-      p_clicked_1_ >= (double)this.x               && p_clicked_3_ >= (double)this.y &&
-      p_clicked_1_ < (double)(this.x + this.width) && p_clicked_3_ < (double)(this.y + this.height);
+      mouse_x >= x              && mouse_y >= y &&
+      mouse_x <  x + this.width && mouse_y <  y + this.height;
   }
 
   private final void set_note(){

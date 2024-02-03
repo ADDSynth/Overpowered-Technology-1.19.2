@@ -11,6 +11,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 /** This inventory only allows items to be inserted. It also has an Item filter to control
  *  which items are allowed. Pass null as the item filter to allow all items.
@@ -48,7 +49,8 @@ public final class InputInventory extends CommonInventory {
   }
 
   @Override
-  public @Nonnull ItemStack insertItem(final int slot, @Nonnull final ItemStack stack, final boolean simulate){
+  @NotNull
+  public ItemStack insertItem(final int slot, @NotNull final ItemStack stack, final boolean simulate){
     if(is_valid_slot(slot)){
       if(isItemStackValid.apply(slot, stack)){
         return super.insertItem(slot, stack, simulate);
@@ -58,7 +60,8 @@ public final class InputInventory extends CommonInventory {
   }
 
   @Override
-  public @Nonnull ItemStack extractItem(int slot, int amount, boolean simulate){
+  @NotNull
+  public ItemStack extractItem(int slot, int amount, boolean simulate){
     if(is_valid_slot(slot)){
       return super.extractItem(slot, amount, simulate);
     }
@@ -102,7 +105,7 @@ public final class InputInventory extends CommonInventory {
   }
 
   @Override
-  protected final int getStackLimit(final int slot, @Nonnull final ItemStack stack){
+  protected final int getStackLimit(final int slot, @NotNull final ItemStack stack){
     if(this.slot_data[slot].stack_limit < 0){
       return stack.getMaxStackSize();
     }

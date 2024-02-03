@@ -77,6 +77,7 @@ public final class CircuitFabricatorGui extends GuiEnergyBase<TileCircuitFabrica
 
   private final void onItemSelected(final ItemStack item, final int index){
     if(item != null){
+      @SuppressWarnings("null")
       final String item_name = ForgeRegistries.ITEMS.getKey(item.getItem()).toString();
       NetworkHandler.INSTANCE.sendToServer(new ChangeCircuitFabricatorRecipe(tile.getBlockPos(), item_name));
       selected_item = StringUtil.translate(item.getDescriptionId());

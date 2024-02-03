@@ -39,7 +39,6 @@ public final class ItemListEntry extends AbstractListEntry<ItemStack> {
   public void set(final int entry_id, final ItemStack item, final Component message){
     this.entry_id = entry_id;
     this.item = item;
-    // this.text = message;
     setMessage(message);
   }
 

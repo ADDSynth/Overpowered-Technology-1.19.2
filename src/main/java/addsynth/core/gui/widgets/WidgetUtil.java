@@ -238,8 +238,10 @@ public final class WidgetUtil {
    * @param widget
    */
   public static final boolean isInside(final int mouse_x, final int mouse_y, final AbstractWidget widget){
-    return mouse_x >= widget.x                   && mouse_y >= widget.y &&
-           mouse_x <  widget.x+widget.getWidth() && mouse_y <  widget.y+widget.getHeight();
+    final int x = widget.x;
+    final int y = widget.y;
+    return mouse_x >= x                   && mouse_y >= y &&
+           mouse_x <  x+widget.getWidth() && mouse_y <  y+widget.getHeight();
   }
 
   public static final boolean isInsideItemStack(final int x, final int y, final int mouse_x, final int mouse_y){
