@@ -23,3 +23,8 @@ run
 
 # Files from Forge MDK
 forge stuff
+
+
+#update scripts
+update.bat
+finalize_update.bat
