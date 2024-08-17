@@ -12,9 +12,9 @@ plugins {
 
 
 
-def mod_version = "v1.5.1-Beta"
+def mod_version = "v1.5.1"
 
-version = "Forge-1.18.2-"+mod_version
+version = "Forge-1.19.2-"+mod_version
 
 group = 'addsynth.overpowered' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'OverpoweredTechnology'
