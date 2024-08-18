@@ -83,9 +83,9 @@ public final class Registers {
       registry.register(Names.DATA_CABLE,                  new DataCable());
       registry.register(Names.CRYSTAL_ENERGY_EXTRACTOR,    new CrystalEnergyExtractorBlock());
       registry.register(Names.GEM_CONVERTER,               new GemConverterBlock());
+      registry.register(Names.IDENTIFIER,                  new IdentifierBlock());
       registry.register(Names.INVERTER,                    new InverterBlock());
       registry.register(Names.MAGIC_INFUSER,               new MagicInfuserBlock());
-      registry.register(Names.IDENTIFIER,                  new IdentifierBlock());
       
       registry.register(Names.ENERGY_SUSPENSION_BRIDGE,    new EnergySuspensionBridgeBlock());
       registry.register(DeviceColor.WHITE.energy_bridge,   new EnergyBridge(DeviceColor.WHITE));
@@ -168,9 +168,9 @@ public final class Registers {
       registry.register(Names.DATA_CABLE,                 new OverpoweredBlockItem(OverpoweredBlocks.data_cable));
       registry.register(Names.CRYSTAL_ENERGY_EXTRACTOR,   new OverpoweredBlockItem(OverpoweredBlocks.crystal_energy_extractor));
       registry.register(Names.GEM_CONVERTER,              new OverpoweredBlockItem(OverpoweredBlocks.gem_converter));
+      registry.register(Names.IDENTIFIER,                 new OverpoweredBlockItem(OverpoweredBlocks.identifier));
       registry.register(Names.INVERTER,                   new OverpoweredBlockItem(OverpoweredBlocks.inverter));
       registry.register(Names.MAGIC_INFUSER,              new OverpoweredBlockItem(OverpoweredBlocks.magic_infuser));
-      registry.register(Names.IDENTIFIER,                 new OverpoweredBlockItem(OverpoweredBlocks.identifier));
       registry.register(Names.ENERGY_SUSPENSION_BRIDGE,   new OverpoweredBlockItem(OverpoweredBlocks.energy_suspension_bridge));
       registry.register(Names.PORTAL_CONTROL_PANEL,       new OverpoweredBlockItem(OverpoweredBlocks.portal_control_panel));
       registry.register(Names.PORTAL_FRAME,               new OverpoweredBlockItem(OverpoweredBlocks.portal_frame));
@@ -242,9 +242,9 @@ public final class Registers {
       final IForgeRegistry<BlockEntityType> registry = event.getForgeRegistry();
       Tiles.CRYSTAL_ENERGY_EXTRACTOR.register(registry);
       Tiles.GEM_CONVERTER.register(registry);
+      Tiles.IDENTIFIER.register(registry);
       Tiles.INVERTER.register(registry);
       Tiles.MAGIC_INFUSER.register(registry);
-      Tiles.IDENTIFIER.register(registry);
       Tiles.ENERGY_SUSPENSION_BRIDGE.register(registry);
       Tiles.LASER_MACHINE.register(registry);
       Tiles.DATA_CABLE.register(registry);
@@ -263,8 +263,8 @@ public final class Registers {
       final IForgeRegistry<MenuType> registry = event.getForgeRegistry();
       registry.register(Names.CRYSTAL_ENERGY_EXTRACTOR, IForgeMenuType.create(ContainerCrystalEnergyExtractor::new));
       registry.register(Names.GEM_CONVERTER,            IForgeMenuType.create(ContainerGemConverter::new));
-      registry.register(Names.INVERTER,                 IForgeMenuType.create(ContainerInverter::new));
       registry.register(Names.IDENTIFIER,               IForgeMenuType.create(ContainerIdentifier::new));
+      registry.register(Names.INVERTER,                 IForgeMenuType.create(ContainerInverter::new));
       registry.register(Names.MAGIC_INFUSER,            IForgeMenuType.create(ContainerMagicInfuser::new));
       registry.register(Names.ENERGY_SUSPENSION_BRIDGE, IForgeMenuType.create(ContainerSuspensionBridge::new));
       registry.register(Names.LASER_HOUSING,            IForgeMenuType.create(ContainerLaserHousing::new));
