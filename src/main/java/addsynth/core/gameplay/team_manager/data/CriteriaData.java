@@ -62,6 +62,7 @@ public final class CriteriaData {
     }
   }
   
+  @SuppressWarnings("null")
   private static final void calculateItems(){
     final Collection<Item> items = CommonUtil.getAllItems();
     final int size = items.size();
