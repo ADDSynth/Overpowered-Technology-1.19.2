@@ -24,7 +24,7 @@ public final class VanillaMetal extends Metal implements OreMaterial {
   }
 
   public final void registerItems(final IForgeRegistry<Item> registry){
-    if(Compatibility.ADDSYNTH_ENERGY.loaded){
+    if(Compatibility.ADDSYNTH_ENERGY.isLoaded()){
       registry.register(plate_name, new MaterialItem());
     }
   }

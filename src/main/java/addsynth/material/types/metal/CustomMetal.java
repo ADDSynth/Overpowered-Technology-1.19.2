@@ -44,7 +44,7 @@ public final class CustomMetal extends Metal implements OreMaterial {
     registry.register(ingot.getId(), new MaterialItem());
     registry.register(block.getId(), new BlockItem(block.get(), new Item.Properties().tab(ADDSynthMaterials.creative_tab)));
     registry.register(ore.getId(),   new BlockItem(ore.get(),   new Item.Properties().tab(ADDSynthMaterials.creative_tab)));
-    if(Compatibility.ADDSYNTH_ENERGY.loaded){
+    if(Compatibility.ADDSYNTH_ENERGY.isLoaded()){
       registry.register(plate_name, new MaterialItem());
     }
   }
