@@ -16,7 +16,7 @@ import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.sounds.SoundManager;
 import net.minecraft.network.chat.Component;
 
-public final class MusicButtons {
+public final class MusicBoxButtons {
 
   private static final int instrument_texture_size = 64;
 
@@ -147,7 +147,7 @@ public final class MusicButtons {
     }
   
     @Override
-    public void onPress(){
+    public final void onPress(){
       NetworkHandler.INSTANCE.sendToServer(new ChangeInstrumentMessage(tile.getBlockPos(), track, GuiMusicBox.instrument_selected));
     }
 
@@ -189,7 +189,7 @@ public final class MusicButtons {
     }
   
     @Override
-    public void onPress(){
+    public final void onPress(){
       GuiMusicBox.instrument_selected = (byte)instrument;
     }
 

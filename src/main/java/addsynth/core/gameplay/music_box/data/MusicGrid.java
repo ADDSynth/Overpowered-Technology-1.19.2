@@ -108,20 +108,19 @@ public final class MusicGrid {
    * @return true if tempo variable actually changed.
    */
   public final boolean setTempo(final boolean direction){
-    boolean pass = false;
     if(direction){
       if(tempo > 1){
         tempo -=1;
-        pass = true;
+        return true;
       }
     }
     else{
       if(tempo < lowest_tempo){
         tempo += 1;
-        pass = true;
+        return true;
       }
     }
-    return pass;
+    return false;
   }
 
   public final byte getTempo(){

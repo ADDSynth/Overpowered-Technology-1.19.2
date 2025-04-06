@@ -30,7 +30,8 @@ public final class GuiGemConverter extends GuiEnergyBase<TileGemConverter, Conta
   private static final int cycle_button_y = 64;
   private static final int cycle_button_width = 10;
   private static final int cycle_button_buffer = 2;
-  private static final int right_button_x = left_button_x + cycle_button_width + 16 + (cycle_button_buffer*2);
+  private static final int render_item_x = left_button_x + cycle_button_width + cycle_button_buffer;
+  private static final int right_button_x = render_item_x + 16 + cycle_button_buffer;
   private static final int cycle_button_height = 16;
   
   private final WorkProgressBar work_progress_bar = new WorkProgressBar(43, 89, 122, 5, 40, 199);
@@ -68,7 +69,7 @@ public final class GuiGemConverter extends GuiEnergyBase<TileGemConverter, Conta
   protected final void renderBg(PoseStack matrix, final float partialTicks, final int mouseX, final int mouseY){
     draw_background_texture(matrix);
     work_progress_bar.draw(matrix, this, tile);
-    itemRenderer.renderGuiItem(gem[tile.get_gem_selected()], this.leftPos + left_button_x + 12, this.topPos + cycle_button_y);
+    itemRenderer.renderGuiItem(gem[tile.get_gem_selected()], this.leftPos + render_item_x, this.topPos + cycle_button_y);
   }
 
   @Override

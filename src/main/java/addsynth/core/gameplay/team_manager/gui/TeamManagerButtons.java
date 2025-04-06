@@ -11,7 +11,7 @@ import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 
-public final class TeamManagerGuiButtons {
+public final class TeamManagerButtons {
 
   private static final Component add            = Component.translatable("gui.addsynthcore.team_manager.common.add");
   private static final Component edit           = Component.translatable("gui.addsynthcore.team_manager.common.edit");
@@ -25,7 +25,7 @@ public final class TeamManagerGuiButtons {
   private static final Component assign         = Component.translatable("gui.addsynthcore.team_manager.display_slot.assign");
   private static final Component clear          = Component.translatable("gui.addsynthcore.team_manager.display_slot.clear");
 
-  private static final Minecraft minecraft = Minecraft.getInstance(); // TEST: probably not a good idea
+  private static final Minecraft minecraft = Minecraft.getInstance();
   public final static int player_button_size = 20;
   public final static int display_slot_button_width = 50;
   public final static int display_slot_button_height = 14;

@@ -7,7 +7,6 @@ import addsynth.core.gameplay.reference.GuiReference;
 import addsynth.core.gui.GuiBase;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 
 public final class GuiMusicBox extends GuiBase {
@@ -105,10 +104,10 @@ public final class GuiMusicBox extends GuiBase {
     final int tempo_x1 = guiBox.left + 6;
     final int tempo_x2 = guiBox.left + 6 + tempo_button_width + tempo_text_width;
     final int tempo_y = guiBox.top + tempo_button_y;
-    addRenderableWidget(new MusicButtons.PlayButton(play_button_x, guiBox.top + 17, play_button_width, tile));
-    addRenderableWidget(new MusicButtons.TempoButton(tempo_x1, tempo_y, tempo_button_width, tempo_button_height, true, tile));
-    addRenderableWidget(new MusicButtons.TempoButton(tempo_x2, tempo_y, tempo_button_width, tempo_button_height, false, tile));
-    addRenderableWidget(new MusicButtons.NextDirectionButton(guiBox.right - 6 - next_direction_button_width, guiBox.top + 17, next_direction_button_width, tile));
+    addRenderableWidget(new MusicBoxButtons.PlayButton(play_button_x, guiBox.top + 17, play_button_width, tile));
+    addRenderableWidget(new MusicBoxButtons.TempoButton(tempo_x1, tempo_y, tempo_button_width, tempo_button_height, true, tile));
+    addRenderableWidget(new MusicBoxButtons.TempoButton(tempo_x2, tempo_y, tempo_button_width, tempo_button_height, false, tile));
+    addRenderableWidget(new MusicBoxButtons.NextDirectionButton(guiBox.right - 6 - next_direction_button_width, guiBox.top + 17, next_direction_button_width, tile));
 
     // music grid buttons
     create_dynamic_buttons();
@@ -124,14 +123,14 @@ public final class GuiMusicBox extends GuiBase {
     x = guiBox.left + mute_button_x;
     for(i = 0; i < MusicGrid.tracks; i++){
       y = guiBox.top + music_grid_y + (i * (track_height));
-      addRenderableWidget(new MusicButtons.MuteButton(x, y, i, tile));
+      addRenderableWidget(new MusicBoxButtons.MuteButton(x, y, i, tile));
     }
 
     // Track Instrument Buttons
     x = guiBox.left + track_instrument_x;
     for(i = 0; i < MusicGrid.tracks; i++){
       y = guiBox.top + music_grid_y + (i * track_height);
-      addRenderableWidget(new MusicButtons.TrackInstrumentButton(x, y, i, tile));
+      addRenderableWidget(new MusicBoxButtons.TrackInstrumentButton(x, y, i, tile));
     }
 
     // Note Buttons
@@ -150,7 +149,7 @@ public final class GuiMusicBox extends GuiBase {
         if(instrument < MusicGrid.instruments.length){
           x = guiBox.left + instrument_button_x + (i * instrument_button_size);
           y = guiBox.top  + instrument_button_y + (j * instrument_button_size);
-          addRenderableWidget(new MusicButtons.SelectInstrumentButton(x, y, instrument));
+          addRenderableWidget(new MusicBoxButtons.SelectInstrumentButton(x, y, instrument));
         }
       }
     }
@@ -159,7 +158,7 @@ public final class GuiMusicBox extends GuiBase {
     x = guiBox.left + track_swap_button_x;
     for(i = 0; i < MusicGrid.tracks - 1; i++){
       y = guiBox.top + track_swap_button_y + (i * track_height);
-      addRenderableWidget(new MusicButtons.SwapTrackButton(x, y, tile, i));
+      addRenderableWidget(new MusicBoxButtons.SwapTrackButton(x, y, tile, i));
     }
   }
 
@@ -215,18 +214,15 @@ public final class GuiMusicBox extends GuiBase {
     
     draw_text_center(matrix, next_text.getString()+":", right_edge - (next_direction_button_width / 2), 6);
     
-    draw_text_left(matrix, current_note_text.getString()+": "+NoteButton.note[note_selected],            6, info_text_y);
+    draw_text_left(matrix, current_note_text.getString()+": "+NoteButton.note[note_selected].getString(),            6, info_text_y);
     draw_text_left(matrix, instrument_text.getString()+": "+instrument[instrument_selected].getString(), center_x - 10, info_text_y);
   }
 
-  /**
-   * Overrides the {@link AbstractContainerScreen#keyPressed(int, int, int)} method.
-   */
   @Override
   public
   final boolean keyPressed(final int keyCode, final int par2, final int par3){
     if(keyCode == GLFW.GLFW_KEY_ESCAPE){
-      this.minecraft.player.closeContainer();
+      onClose();
       return true;
     }
     // MAYBE: maybe make these keys changeable in the Controls Options screen.
