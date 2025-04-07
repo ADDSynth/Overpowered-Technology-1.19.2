@@ -4,9 +4,9 @@ import addsynth.core.gui.util.GuiUtil;
 import addsynth.core.gui.widgets.buttons.AdjustableButton;
 import addsynth.energy.lib.gui.GuiEnergyBase;
 import addsynth.energy.lib.gui.widgets.WorkProgressBar;
-import addsynth.material.Material;
 import addsynth.overpoweredmod.config.Config;
 import addsynth.overpoweredmod.game.NetworkHandler;
+import addsynth.overpoweredmod.game.core.Gems;
 import addsynth.overpoweredmod.game.reference.GuiReference;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
@@ -15,16 +15,8 @@ import net.minecraft.world.item.ItemStack;
 
 public final class GuiGemConverter extends GuiEnergyBase<TileGemConverter, ContainerGemConverter> {
 
-  private static final ItemStack[] gem = new ItemStack[] {
-    new ItemStack(Material.RUBY.getGem(), 1),
-    new ItemStack(Material.TOPAZ.getGem(), 1),
-    new ItemStack(Material.CITRINE.getGem(), 1),
-    new ItemStack(Material.EMERALD.gem, 1),
-    new ItemStack(Material.DIAMOND.gem, 1),
-    new ItemStack(Material.SAPPHIRE.getGem(), 1),
-    new ItemStack(Material.AMETHYST.getGem(), 1),
-    new ItemStack(Material.QUARTZ.gem, 1)
-  };
+  private int gem_index;
+  private ItemStack gem;
 
   private static final int left_button_x = 64;
   private static final int cycle_button_y = 64;
@@ -61,6 +53,8 @@ public final class GuiGemConverter extends GuiEnergyBase<TileGemConverter, Conta
   @Override
   protected final void init(){
     super.init();
+    gem_index = tile.get_gem_selected();
+    gem = Gems.getGem(gem_index);
     addRenderableWidget(new CycleGemButton(this.leftPos + left_button_x, this.topPos + cycle_button_y,false, tile));
     addRenderableWidget(new CycleGemButton(this.leftPos + right_button_x, this.topPos + cycle_button_y,true, tile));
   }
@@ -69,7 +63,11 @@ public final class GuiGemConverter extends GuiEnergyBase<TileGemConverter, Conta
   protected final void renderBg(PoseStack matrix, final float partialTicks, final int mouseX, final int mouseY){
     draw_background_texture(matrix);
     work_progress_bar.draw(matrix, this, tile);
-    itemRenderer.renderGuiItem(gem[tile.get_gem_selected()], this.leftPos + render_item_x, this.topPos + cycle_button_y);
+    if(tile.get_gem_selected() != gem_index){
+      gem_index = tile.get_gem_selected();
+      gem = Gems.getGem(gem_index);
+    }
+    itemRenderer.renderGuiItem(gem, this.leftPos + render_item_x, this.topPos + cycle_button_y);
   }
 
   @Override
@@ -80,7 +78,7 @@ public final class GuiGemConverter extends GuiEnergyBase<TileGemConverter, Conta
     
     final ItemStack s1 = tile.getWorkingInventory().getStackInSlot(0);
     if(Config.blend_working_item.get()){
-      final ItemStack s2 = gem[tile.getConvertingStack()];
+      final ItemStack s2 = Gems.getGem(tile.getConvertingStack());
       GuiUtil.blendItemStacks(itemRenderer, s1, s2, 76, 45, work_progress_bar.getWorkTime());
     }
     else{
