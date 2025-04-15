@@ -7,6 +7,7 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 import addsynth.core.ADDSynthCore;
 import addsynth.core.util.command.PermissionLevel;
+import addsynth.core.util.command.TagArgumentTester;
 import addsynth.core.util.java.FileUtil;
 import addsynth.core.util.java.JavaUtils;
 import addsynth.core.util.java.StringUtil;
@@ -14,12 +15,13 @@ import addsynth.core.util.math.block.BlockMath;
 import addsynth.core.util.world.WorldConstants;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
 import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.commands.arguments.blocks.BlockInput;
-import net.minecraft.commands.arguments.blocks.BlockStateArgument;
+import net.minecraft.commands.arguments.ResourceOrTagLocationArgument;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
@@ -32,9 +34,12 @@ import net.minecraftforge.registries.tags.ITag;
 
 public final class ShowOresCommand {
 
-  private static final int DEFAULT_ORE_SAMPLE_SIZE = 15;
-  private static final int MAX_ORE_SAMPLE_SIZE = 40;
+  private static final int DEFAULT_CHUNK_SIZE = 15;
+  private static final int MAX_CHUNK_SIZE = 40;
   private static final String ore_sample_file = "ore_sample.txt";
+  private static final DynamicCommandExceptionType DYNAMIC_EXCEPTION = new DynamicCommandExceptionType((Object resource) -> {
+    return Component.literal("Resource "+resource.toString()+" is invalid.");
+  });
 
   public static final void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext build_context){
     /*
@@ -57,9 +62,9 @@ public final class ShowOresCommand {
         (command_source) -> { return command_source.hasPermission(PermissionLevel.COMMANDS); }
       ).then(
         Commands.literal("sample_ores").executes(
-          (command_context) -> { return print_ore_sample(command_context.getSource(), DEFAULT_ORE_SAMPLE_SIZE); }
+          (command_context) -> { return print_ore_sample(command_context.getSource(), DEFAULT_CHUNK_SIZE); }
         ).then(
-          Commands.argument("size", IntegerArgumentType.integer(1, MAX_ORE_SAMPLE_SIZE)).executes(
+          Commands.argument("size", IntegerArgumentType.integer(1, MAX_CHUNK_SIZE)).executes(
             (command_context) -> { return print_ore_sample(command_context.getSource(), IntegerArgumentType.getInteger(command_context, "size")); }
           )
         )
@@ -70,12 +75,14 @@ public final class ShowOresCommand {
         (command_source) -> {return command_source.hasPermission(PermissionLevel.COMMANDS); }
       ).then(
         Commands.literal("count_blocks").then(
-          Commands.argument("block", BlockStateArgument.block(build_context)).executes(
-            (command_context) -> { return count_ores(command_context.getSource(), BlockStateArgument.getBlock(command_context, "block"), DEFAULT_ORE_SAMPLE_SIZE); }
+          Commands.argument("block", ResourceOrTagLocationArgument.resourceOrTag(Registry.BLOCK_REGISTRY)).executes(
+            (command_context) -> {
+              return count_ores(command_context.getSource(), ResourceOrTagLocationArgument.getRegistryType(command_context, "block", Registry.BLOCK_REGISTRY, DYNAMIC_EXCEPTION), DEFAULT_CHUNK_SIZE);
+            }
           ).then(
-            Commands.argument("size", IntegerArgumentType.integer(1, MAX_ORE_SAMPLE_SIZE)).executes(
+            Commands.argument("size", IntegerArgumentType.integer(1, MAX_CHUNK_SIZE)).executes(
               (command_context) -> {
-                return count_ores(command_context.getSource(), BlockStateArgument.getBlock(command_context, "block"),
+                return count_ores(command_context.getSource(), ResourceOrTagLocationArgument.getRegistryType(command_context, "block", Registry.BLOCK_REGISTRY, DYNAMIC_EXCEPTION),
                                                                IntegerArgumentType.getInteger(command_context, "size"));
               }
             )
@@ -222,13 +229,13 @@ public final class ShowOresCommand {
     return 0;
   }
 
-  private static final int count_ores(final CommandSourceStack source, final BlockInput block_state_input, final int size){
+  private static final int count_ores(final CommandSourceStack source, final ResourceOrTagLocationArgument.Result<Block> target, final int size){
     long blocks = 0;
     final Entity entity = source.getEntity();
     if(entity != null){
-      final Block check_block = block_state_input.getState().getBlock();
-      @SuppressWarnings("null")
-      final String block_name = ForgeRegistries.BLOCKS.getKey(check_block).toString(); // can't translate
+      @SuppressWarnings("deprecation")
+      final TagArgumentTester<Block> checker = new TagArgumentTester<Block>(Registry.BLOCK, target);
+      final String name = checker.isTag ? "blocks matching tag "+checker.name : checker.name + " blocks";
       final Level world = source.getLevel();
       final int height = world.getMaxBuildHeight();
       final BlockPos position = entity.blockPosition();
@@ -249,18 +256,18 @@ public final class ShowOresCommand {
             new_position = new BlockPos(x_coord + x, y, z_coord + z);
             blockstate = world.getBlockState(new_position);
             block = blockstate.getBlock();
-            if(block == check_block){
+            if(checker.test(block)){
               blocks += 1;
             }
           }
         }
       }
       if(blocks > 0){
-        final String text = StringUtil.build("Found ", blocks, " ", block_name, " in ", chunks, " chunks. Average: ", String.format("%.2f", ((double)blocks/chunks)), " per chunk.");
+        final String text = StringUtil.build("Found ", blocks, " ", name, " in ", chunks, " chunks. Average: ", String.format("%.2f", ((double)blocks/chunks)), " per chunk.");
         source.sendSuccess(Component.literal(text), true);
       }
       else{
-        final String text = StringUtil.build("No ", block_name, " found in ", chunks, " chunks.");
+        final String text = StringUtil.build("No ", name, " found in ", chunks, " chunks.");
         source.sendSuccess(Component.literal(text), true);
       }
     }
