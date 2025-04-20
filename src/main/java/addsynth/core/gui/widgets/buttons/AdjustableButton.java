@@ -70,7 +70,7 @@ public abstract class AdjustableButton extends AbstractButton {
       WidgetUtil.crossSplitRender(matrix, x, y, 0, button_texture_y, width, height, max_width, max_height);
       this.renderBg(matrix, minecraft, mouseX, mouseY);
       
-      final int text_color = getFGColor(); // 14737632; TODO: Is this the text color I'm looking for? Move this to constants. But now there's one in GuiUtil as well.
+      final int text_color = getFGColor();
       drawCenteredString(matrix, minecraft.font, this.getMessage(), x + (width/2), y + (height/2) - 4, text_color);
     }
 
