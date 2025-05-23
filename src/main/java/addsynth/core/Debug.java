@@ -94,7 +94,7 @@ public final class Debug {
     }
   }
 
-  private static final <T> void printTags(final String filename, final String type_name, final Optional<? extends Registry<T>> optional){
+  private static final <T> void printTags(final String filename, final String type_name, final Optional<? extends Registry<? extends T>> optional){
     if(optional.isPresent()){
       printTags(filename, type_name, optional.get());
     }
