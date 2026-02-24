@@ -1,4 +1,4 @@
-v1.5.3 - TBD
+v1.5.3 - February 24, 2026
 NEW:
   Unidentified Item drops now drop for the Piglin, Piglin Brute, Hoglin, Zoglin, and the Warden.
   New debug feature: We now allow more Tag types to be dumped in ADDSynthCore config.
